@@ -9,6 +9,8 @@ import { ProposalShowComponent } from './proposal/proposal-show.component';
 
 
 import { PostclipComponent } from './postclip/postclip.component';
+import { BoardShowComponent } from './board/board-show.component';
+import { WallComponent } from './wall/wall.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -17,6 +19,8 @@ const routes: Routes = [
   { path: 'proposals', component: ProposalListComponent },
   { path: 'proposals/new', component: ProposalNewComponent },
   { path: 'proposal/:id', component: ProposalShowComponent },
+  { path: 'board/:id', component: BoardShowComponent },
+  { path: 'wall', component: WallComponent },
   { path: 'postclips', component: PostclipComponent }
 
 

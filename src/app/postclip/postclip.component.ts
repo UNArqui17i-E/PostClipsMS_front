@@ -5,9 +5,11 @@ import { Postclip } from './postclip';
 import { PostclipService } from './postclip.service';
 
 @Component({
+  moduleId: module.id,
   selector: 'app-postclip',
   templateUrl: './postclip.component.html',
-  styleUrls: ['./postclip.component.css']
+  styleUrls: ['./postclip.component.css'],
+  providers:[ PostclipService ]
 })
 export class PostclipComponent implements OnInit {
   postclips: Postclip[];

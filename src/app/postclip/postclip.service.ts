@@ -18,8 +18,13 @@ export class PostclipService {
     .catch(this.handleError);
   }
 
-  getPosclip(id: number){
+  getPostclip(id: number){
     return this.http.get(this.postclipUrl + "/" + id + ".json")
+  }
+  getPostclipByBoard(id: number){
+    return this.http.get(this.postclipUrl + "/clips_by_board/" + id)
+    .map((response: Response)=> <Postclip[]>response.json())
+    .catch(this.handleError);
   }
 
 

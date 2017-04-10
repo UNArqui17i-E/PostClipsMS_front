@@ -14,6 +14,10 @@ import { ProposalService } from './proposal/proposal.service';
 
 import { PostclipComponent } from './postclip/postclip.component';
 import { PostclipService } from './postclip/postclip.service';
+import { BoardShowComponent } from './board/board-show.component';
+import { BoardService } from './board/board.service';
+import { WallComponent } from './wall/wall.component';
+
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -22,7 +26,10 @@ import { AppRoutingModule } from './app-routing.module';
 
 
 
+
+
 @NgModule({
+
   imports:      [
      BrowserModule,
      AppRoutingModule,
@@ -31,6 +38,7 @@ import { AppRoutingModule } from './app-routing.module';
      HttpModule
 
     ],
+
   declarations: [
     HomepageComponent,
     AppComponent,
@@ -38,13 +46,16 @@ import { AppRoutingModule } from './app-routing.module';
     ProposalListComponent,
     ProposalNewComponent,
     ProposalShowComponent,
-    PostclipComponent
+    PostclipComponent,
+    BoardShowComponent,
+    WallComponent
 
    ],
    providers:[
      DocumentService,
      ProposalService,
-     PostclipService
+     PostclipService,
+     BoardService
    ],
   bootstrap:    [ AppComponent ]
 })
