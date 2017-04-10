@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="list-group">
+    <a class="list-group-item list-group-item-action flex-column align-items-start active">
+      <h1 class="headline">Postclips</h1>
+    </a>
+    <span *ngFor="let postclip of postclips">
+      <a (click)="goToShow()" class="postclip-link list-group-item list-group-item-action flex-column align-items-start">
+        <h5 class="list-group-item-heading">{{postclip.name}}</h5>
+        <!-- <p class="list-group-item-text">{{postclip.hourly_rate * postclip.estimated_hours |
+          currency: 'USD':true:'.0'  }}</p>  -->
+          <!-- | symbols means pipes (look up) -->
+        <img src="{{postclip.attachment.url}}"  height="200" width="200">
+      </a>
+    </span>
+  </div>
+</div>
