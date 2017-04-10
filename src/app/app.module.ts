@@ -12,8 +12,12 @@ import { ProposalNewComponent } from './proposal/proposal-new.component';
 import { ProposalShowComponent } from './proposal/proposal-show.component';
 import { ProposalService } from './proposal/proposal.service';
 
+import { PostclipComponent } from './postclip/postclip.component';
+import { PostclipService } from './postclip/postclip.service';
+
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+
 
 
 
@@ -33,12 +37,14 @@ import { AppRoutingModule } from './app-routing.module';
     DocumentsComponent,
     ProposalListComponent,
     ProposalNewComponent,
-    ProposalShowComponent
+    ProposalShowComponent,
+    PostclipComponent
 
    ],
    providers:[
      DocumentService,
-     ProposalService
+     ProposalService,
+     PostclipService
    ],
   bootstrap:    [ AppComponent ]
 })

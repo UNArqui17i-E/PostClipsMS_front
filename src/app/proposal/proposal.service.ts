@@ -19,6 +19,7 @@ export class ProposalService{
   getProposal(id:number){
     return this.http.get(this.proposalsUrl + "/" + id + ".json")
   }
+  
   createProposal( proposal: Proposal  ){
     let headers = new Headers({ 'Content-Type': 'application/json'});
     let options = new RequestOptions({headers: headers});
