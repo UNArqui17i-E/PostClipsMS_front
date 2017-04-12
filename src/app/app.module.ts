@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 import { NgbModule}  from '@ng-bootstrap/ng-bootstrap';
 
 import { HomepageComponent }  from './homepage/homepage.component';
+import { LoginComponent }  from './login/login.component';
 import { DocumentsComponent } from './documents/documents.component';
 import { DocumentService } from './documents/document.service';
 import { ProposalListComponent } from './proposal/proposal-list.component';
@@ -41,6 +42,7 @@ import { AppRoutingModule } from './app-routing.module';
 
   declarations: [
     HomepageComponent,
+    LoginComponent,
     AppComponent,
     DocumentsComponent,
     ProposalListComponent,

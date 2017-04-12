@@ -1,6 +1,147 @@
-<div class="container">
-  <div class="jumbotron">
-    <h1>PostClip</h1>
-    <p class="lead">Picture your ideas</p>
+<div id="page-top" style="background-color: black;font-family: Helvetica, Arial, sans-serif; color: white;">
+
+    <!-- Navigation -->
+    <nav id="mainNav" class="navbar fixed-top navbar-toggleable-md navbar-light">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarExample" aria-controls="navbarExample" aria-expanded="false" aria-label="Toggle navigation">
+            Menu <i class="fa fa-bars"></i>
+        </button>
+        <div class="container">
+            <a class="navbar-brand" style="color:black;font-size:2em" href="home#page-top">PostClip</a>
+            <div class="collapse navbar-collapse" id="navbarExample">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link"  style="color:black" href="home#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                      <!-- Trigger the modal with a button -->
+                      <!--<button  class="btn-link nav-link" style="color:white;color: white;font-family: arial;" id="myBtn">LOGIN</button>-->
+                      <a class="nav-link" style="color:black" href="login">Login</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" style="color:black" href="login">Register</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" style="color:black" href="home#download">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Intro Header -->
+    <header class="masthead">
+        <div class="intro-body">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 offset-md-2">
+                        <!--<h1 class="brand-heading">Welcome</h1>-->
+                        <img src="/assets/homepage/images/LogoFinal.png" class="img-responsive" style="width:32em;height:32em;" alt="Cinque Terre">
+                        <p class="intro-text" style="color:black">The new social network.</p>
+                        <a href="home#about" style="color:black" class="btn btn-circle page-scroll">
+                            <h3>&darr;</h3>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+
+    <!-- About Section -->
+    <section id="about" class="container content-section text-center">
+        <div class="row">
+            <div class="col-lg-8 offset-md-2">
+              <h2>PostClip</h2>
+              <hr style="background-color:white;">
+              <h2>Picture your ideas</h2>
+              <p>Postclips is a social network created by students.</p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Download Section -->
+    <section id="download" class="content-section text-center">
+        <div class="download-section">
+            <div class="container">
+              <div class="col-lg-8 offset-md-2">
+                  <h2>Contact our developer team</h2>
+                  <ul class="list-inline banner-social-buttons">
+                      <li class="list-inline-item">
+                          <a href="https://github.com/UNArqui17i-E" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
+                      </li>
+                      <li class="list-inline-item">
+                          <a href="https://plus.google.com/+Postclips" class="btn btn-default btn-lg"><i class="fa fa-google-plus fa-fw"></i> <span class="network-name">Google+</span></a>
+                      </li>
+                  </ul>
+              </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container text-center">
+            <p>Copyright &copy; PostClips 2017</p>
+        </div>
+    </footer>
+
+    <!-- Modal Login-->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true" align="center">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" style="color: black;">Login</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body" style="color:black;">
+
+        <div class="form-signin" style="color: black;">
+          <br>
+          <img src="/assets/homepage/images/user.jpg" class="img-responsive" style="width:7em;height:7em;"alt="Cinque Terre">
+          <br><br>
+          <label><b>Username</b></label>
+           <input type="text" class="form-control"  style="width: 20em" placeholder="Enter Username" name="uname" required>
+           <br>
+           <label><b>Password</b></label>
+           <input type="password" class="form-control" style="width: 20em" placeholder="Enter Password" name="psw" required>
+           <br>
+           <br>
+           <button class="btn btn-success" class="form-control" >Log in</button>
+        </div>
+        <p class="text-center text-muted">Not registered yet? <a href="#"><br><strong>Register now</strong></a></p>
+      </div>
+    </div>
   </div>
 </div>
+
+
+
+
+</div>
+
+
+
+<!-- Google Maps API Key - Use your own API key to enable the map feature. More information on the Google Maps API can be found at https://developers.google.com/maps/ -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRngKslUGJTlibkQ3FkfTxj3Xss1UlZDA&sensor=false"></script>
+
+<script>
+    $(document).ready(function(){
+          alert("Yeah!");
+    });
+</script>
+
+<script>
+    $(document).ready(function(){
+        $("#myBtn").click(function(){
+            $("#myModal").modal();
+        });
+        $("#myBtn2").click(function(){
+            $("#myModal2").modal();
+        });
+    });
+</script>
