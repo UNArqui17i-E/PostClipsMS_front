@@ -11,7 +11,9 @@ import { AlertService, AuthenticationService } from '../_services/index';
 })
 export class LoginComponent implements OnInit {
     model: any = {};
+    model1: any = {};
     loading = false;
+    loading1 = false;
     returnUrl: string;
 
     constructor(
@@ -31,13 +33,44 @@ export class LoginComponent implements OnInit {
     login() {
         this.loading = true;
         this.authenticationService.login(this.model.email, this.model.password)
+        .subscribe(
+            data => {
+                alert(data);
+                //this.router.navigate([this.returnUrl]);
+            },
+            error => {
+                this.alertService.error(error);
+                this.loading = false;
+            });
+
+    }
+
+    register() {
+        this.loading1 = true;
+        this.authenticationService.create(this.model1.firstName, this.model1.lastName, this.model1.username, this.model1.password )
             .subscribe(
                 data => {
-                    this.router.navigate([this.returnUrl]);
+                    var str = String(data);
+                    var n = str.search("201");
+                    var div = document.getElementById('aviso');
+                    var div1 = document.getElementById('aviso1');
+                    if( n != -1 ){
+
+                      div1.style.display= 'none' ;
+                      div.style.display= 'block' ;
+
+                    }else{
+
+                      div.style.display= 'none' ;
+                      div1.style.display= 'block' ;
+
+                    }
+                    this.loading1 = false;
                 },
                 error => {
                     this.alertService.error(error);
-                    this.loading = false;
+                    this.loading1 = false;
                 });
     }
+
 }

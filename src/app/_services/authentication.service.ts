@@ -8,6 +8,7 @@ export class AuthenticationService {
     constructor(private http: Http) { }
 
     model: User;
+    regis: User;
 
     login(email: string, password: string) {
 
@@ -47,5 +48,20 @@ export class AuthenticationService {
     logout() {
         // remove user from local storage to log user out
         localStorage.removeItem('currentUser');
+    }
+
+    create(name: string, nick: string, email: string, password: string) {
+
+        this.regis = new User();
+        this.regis.email = email;
+        this.regis.password = password;
+        this.regis.nick = nick;
+        this.regis.name = name;
+        let body = JSON.stringify(this.regis);
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+        return this.http.post('http://192.168.99.102:4001/user/resources/ldapcruds', body, options);
+        // remove user from local storage to log user out
+        //localStorage.removeItem('currentUser');
     }
 }

@@ -55,22 +55,43 @@
 
 		<div class="col-sm-2"></div>
 		<div class="col-sm-3" style="background-color: white;border-radius: 25px;">
+      <div class="alert alert-success" style="display: none" id="aviso">
+          <strong>Success!</strong> Please Log In.
+      </div>
+      <div class="alert alert-danger" style="display: none" id="aviso1">
+          <strong>Error!</strong> Please Try again.
+      </div>
 			<h1>Register</h1>
 			<br>
       <img src="/assets/login/images/registerUser.png" class="img-responsive" style="width:7em;height:7em;"alt="Cinque Terre">
       <br>
-			<label><b>Name</b></label>
-			<input type="text" class="form-control"  style="width: 20em" placeholder="Enter name" name="rname" required>
-			<br>
-			<label><b>Username</b></label>
-			<input type="text" class="form-control"  style="width: 20em" placeholder="Enter Username" name="rname" required>
-			<br>
-			<label><b>Password</b></label>
-			<input type="password" class="form-control" style="width: 20em" placeholder="Enter Password" name="rpsw" required>
-			<br>
-			<br>
-      <button class="btn btn-success" type="submit">Sign Up!</button>
-			<br><br>
+      <form name="form1" (ngSubmit)="f1.form.valid && register()" #f1="ngForm" novalidate>
+          <div class="form-group" [ngClass]="{ 'has-error': f1.submitted && !username.valid }">
+              <label for="firstName">Name</label>
+              <input type="text" class="form-control" name="firstName" [(ngModel)]="model1.firstName" #firstName="ngModel" required />
+              <div *ngIf="f1.submitted && !firstName.valid" class="help-block">First Name is required</div>
+          </div>
+          <div class="form-group" [ngClass]="{ 'has-error': f1.submitted && !username.valid }">
+              <label for="lastName">Nick name</label>
+              <input type="text" class="form-control" name="nick" [(ngModel)]="model1.lastName" #lastName="ngModel" required />
+              <div *ngIf="f1.submitted && !lastName.valid" class="help-block">Last Name is required</div>
+          </div>
+          <div class="form-group" [ngClass]="{ 'has-error': f1.submitted && !name.valid }">
+              <label for="username">Email</label>
+              <input type="text" class="form-control" name="username" [(ngModel)]="model1.username" #email="ngModel" required />
+              <div *ngIf="f1.submitted && !username.valid" class="help-block">Username is required</div>
+          </div>
+          <div class="form-group" [ngClass]="{ 'has-error': f1.submitted && !password1.valid }">
+              <label for="password1">Password</label>
+              <input type="password" class="form-control" name="password1" [(ngModel)]="model1.password" #password1="ngModel" required />
+              <div *ngIf="f1.submitted && !password1.valid" class="help-block">Password is required</div>
+          </div>
+          <div class="form-group">
+              <button [disabled]="loading1" class="btn btn-primary">Register</button>
+              <img *ngIf="loading1" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+              <a [routerLink]="['/login']" class="btn btn-link">Cancel</a>
+          </div>
+      </form>
 		</div>
 		<div class="col-sm-2"></div>
 		<br><br>
