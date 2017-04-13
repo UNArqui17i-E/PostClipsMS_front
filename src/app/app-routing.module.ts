@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule , Routes} from '@angular/router';
 
 import { HomepageComponent } from './homepage/homepage.component';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './login/index';
+import { AuthGuard } from './_guards/index';
 import { DocumentsComponent } from './documents/documents.component';
 import { ProposalListComponent } from './proposal/proposal-list.component';
 import { ProposalNewComponent } from './proposal/proposal-new.component';
