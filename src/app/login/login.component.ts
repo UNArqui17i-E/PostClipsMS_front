@@ -34,14 +34,29 @@ export class LoginComponent implements OnInit {
         this.loading = true;
         this.authenticationService.login(this.model.email, this.model.password)
         .subscribe(
-            data => {
-                alert(data);
-                //this.router.navigate([this.returnUrl]);
+            data1 => {
+                if( data1.login == "True" ){
+                  this.router.navigate([this.returnUrl]);
+                }else{
+                    var divL = document.getElementById('avisoLogin');
+                    divL.style.display= 'block' ;
+                }
             },
             error => {
                 this.alertService.error(error);
                 this.loading = false;
             });
+
+        /*if ( a == true ){
+
+            this.router.navigate(["\home"]);
+
+        }else{
+
+          var divL = document.getElementById('avisoLogin');
+          divL.style.display= 'block' ;
+
+        }*/
 
     }
 

@@ -17,21 +17,21 @@ export class AuthenticationService {
       this.model.password = password;
       this.model.nick = email;
       this.model.name = email;
-      alert(JSON.stringify(this.model));
       let body = JSON.stringify(this.model);
       let headers = new Headers({ 'Content-Type': 'application/json' });
       let options = new RequestOptions({ headers: headers });
-
+      var resul = false;
       return this.http.post('http://192.168.99.102:4001/user/resources/ldap', body, options)
                       .map((response: Response) => {
                 // login successful if there's a jwt token in the response
-                let user = response.json();
-                alert(user.login);
-                if (user && user.login == "True") {
-                    alert("Entro :O");
-                    // store user details and jwt token in local storage to keep user logged in between page refreshes
-                    localStorage.setItem('currentUser', JSON.stringify(user));
-                }});
+                return response.json();
+
+
+
+              }
+            );
+      //alert(resul);
+      //return resul;
         //alert(JSON.stringify({ email: username, password: password, nick: username, name: username }));
     /*let headers = new Headers({ 'Content-Type': 'application/json'});
         return this.http.post('http://192.168.99.102:4001/user/resources/ldap', JSON.stringify({ email: username, password: password, nick: username, name: username }),{headers: headers})
