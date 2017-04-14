@@ -1,4 +1,4 @@
-@import https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css
+@import url("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css");
 
 .modalDialog {
   position: fixed;
@@ -21,10 +21,12 @@
 }
 
 .modalDialog > div {
-  width: 70%;
+  width: 75%;
   height: auto;
   position: relative;
-  margin: 10% auto;
+  margin-top: 3%;
+  margin-left: 10%;
+  margin-right: 10%;
   padding: 5px 20px 13px 20px;
   border-radius: 10px;
   background: #fff;
@@ -33,7 +35,7 @@
   background: -o-linear-gradient(#FFFFFF, #3399FF);
 }
 .close {
-  background: #606061;
+  background: #FF5330;
   color: #FFFFFF;
   line-height: 25px;
   position: absolute;
@@ -50,7 +52,7 @@
   -webkit-box-shadow: 1px 1px 3px #000;
   box-shadow: 1px 1px 3px #000;
 }
-.close:hover { background: #FF5330; }
+.close:hover { background: #FF0000; }
 input{
   text-align: center;
 }

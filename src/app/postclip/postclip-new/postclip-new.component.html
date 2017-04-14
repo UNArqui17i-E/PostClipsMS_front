@@ -1,10 +1,10 @@
-<!-- <a href="#openModal">Open Modal</a>
+<a href="#openModal">Open Modal</a>
 
 <div id="openModal" class="modalDialog">
   <div>
     <a href="#close" title="Close" class="close">X</a>
     <h2>Add new clip</h2>
-    <form (ngSubmit)="createPostclip(postclip)"  #postclipForm="ngForm" >
+    <form class="form-group" (ngSubmit)="createPostclip(postclip)"  #postclipForm="ngForm" >
       <div class="form-group">
         <label for="Title">Title:</label>
         <input type="text" class="form-control" placeholder="Enter the title of Clip"
@@ -15,12 +15,12 @@
         <input type="text" class="form-control" placeholder="Put a short description"
         name="description" #description='ngModel' [(ngModel)]="postclip.description">
       </div>
-      <div class="from-group">
+      <div class="form-group">
         <label for="content">Content</label>
         <input type="text" class="form-control" placeholder="Put a content link"
         name="content" #content='ngModel' [(ngModel)]="postclip.content">
       </div>
-      <div class="from-group">
+      <div class="form-group">
         <br>
         <input type="file" name="file" id="file" class="inputfile" #attachment='ngModel' [(ngModel)]="postclip.attachment"/>
         <label for="file">Attachment</label>
@@ -32,5 +32,4 @@
       </a>
     </form>
   </div>
-</div> -->
-<h1>Hola mundo</h1>
+</div>
