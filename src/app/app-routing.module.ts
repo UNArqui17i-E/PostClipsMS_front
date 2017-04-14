@@ -10,6 +10,7 @@ import { ProposalShowComponent } from './proposal/proposal-show.component';
 
 
 import { PostclipComponent } from './postclip/postclip.component';
+import { PostclipNewComponent } from './postclip/postclip-new/postclip-new.component';
 import { BoardShowComponent } from './board/board-show.component';
 import { WallComponent } from './wall/wall.component';
 
@@ -23,9 +24,8 @@ const routes: Routes = [
   { path: 'proposal/:id', component: ProposalShowComponent },
   { path: 'board/:id', component: BoardShowComponent },
   { path: 'wall', component: WallComponent },
-  { path: 'postclips', component: PostclipComponent }
-
-
+  { path: 'postclips', component: PostclipComponent },
+  { path: 'postclip/new', component: PostclipNewComponent }
 
 ]
 

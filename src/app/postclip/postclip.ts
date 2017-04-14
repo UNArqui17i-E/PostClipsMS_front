@@ -1,6 +1,7 @@
 export class Postclip {
   constructor(
     public id?: number,
+    public name?: string,
     public description?: string,
     public contentLink?: string,
     public attachment?: string,

@@ -22,6 +22,7 @@ import { WallComponent } from './wall/wall.component';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { PostclipNewComponent } from './postclip/postclip-new/postclip-new.component';
 
 
 
@@ -50,7 +51,8 @@ import { AppRoutingModule } from './app-routing.module';
     ProposalShowComponent,
     PostclipComponent,
     BoardShowComponent,
-    WallComponent
+    WallComponent,
+    PostclipNewComponent
 
    ],
    providers:[
