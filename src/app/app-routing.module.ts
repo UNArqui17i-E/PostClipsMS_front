@@ -24,7 +24,7 @@ const routes: Routes = [
   { path: 'proposals/new', component: ProposalNewComponent },
   { path: 'proposal/:id', component: ProposalShowComponent },
   { path: 'board/:id', component: BoardShowComponent },
-  { path: 'board/new', component: BoardNewComponent },
+  { path: 'boards/new', component: BoardNewComponent },
   { path: 'wall', component: WallComponent },
   { path: 'postclips', component: PostclipComponent },
   { path: 'postclip/new', component: PostclipNewComponent }
