@@ -17,12 +17,13 @@ import { PostclipComponent } from './postclip/postclip.component';
 import { PostclipService } from './postclip/postclip.service';
 import { BoardShowComponent } from './board/board-show.component';
 import { BoardService } from './board/board.service';
+import { BoardNewComponent } from './board/board-new/board-new.component';
+import { PostclipNewComponent } from './postclip/postclip-new/postclip-new.component';
 import { WallComponent } from './wall/wall.component';
 
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { PostclipNewComponent } from './postclip/postclip-new/postclip-new.component';
 
 
 
@@ -51,8 +52,10 @@ import { PostclipNewComponent } from './postclip/postclip-new/postclip-new.compo
     ProposalShowComponent,
     PostclipComponent,
     BoardShowComponent,
+    BoardNewComponent,
     WallComponent,
     PostclipNewComponent
+
 
    ],
    providers:[

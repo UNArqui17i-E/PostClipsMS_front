@@ -30,11 +30,10 @@
   padding: 5px 20px 13px 20px;
   border-radius: 10px;
   background: #fff;
-  background: -moz-linear-gradient(#FFFFFF, #3399FF);
-  background: -webkit-linear-gradient(#FFFFFF, #3399FF);
-  background: -o-linear-gradient(#FFFFFF, #3399FF);
+  background: -moz-linear-gradient(#CC99FF,#FFFFFF);
+  background: -webkit-linear-gradient(#CC99FF,#FFFFFF);
+  background: -o-linear-gradient(#CC99FF,#FFFFFF);
 }
-
 .close {
   background: #FF5330;
   color: #FFFFFF;
@@ -57,40 +56,6 @@
 input{
   text-align: center;
 }
-.inputfile {
-  width: 0.1px;
-  height: 0.1px;
-  opacity: 1;
-  overflow: hidden;
-  position: absolute;
-  z-index: -1;
-}
-.inputfile + label {
-  font-size: 1.25em;
-  font-weight: 700;
-  color: white;
-  display: inline-block;
-  padding: 4px;
-}
-
-.inputfile:focus + label,
-.inputfile + label:hover {
-  color: #3399FF;
-  background-color: #FFFFFF;
-  border-radius: 5px;
-}
-.inputfile + label {
-  cursor: pointer; /* "hand" cursor */
-}
 .form-group{
   text-align: center;
-}
-.select{
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 16px;
-  -webkit-border-radius: 4px;
-  height: auto;
-  width: inherit;
-  padding: 5px;
-  font:
 }
