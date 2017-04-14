@@ -1,0 +1,46 @@
+<a href="#openModal">Open Modal</a>
+
+<div id="openModal" class="modalDialog">
+  <div>
+    <a href="#close" title="Close" class="close">X</a>
+    <h2>Add new clip</h2>
+    <form class="form-group" (ngSubmit)="createPostclip(postclip)"  #postclipForm="ngForm" >
+      <div class="form-group">
+        <label for="name">Title:</label>
+        <input type="text" class="form-control" placeholder="Enter the title of Clip"
+        name="name" #name='ngModel' [(ngModel)]="postclip.name">
+      </div>
+      <div class="form-group">
+        <label for="description">Description:</label>
+        <input type="text" class="form-control" placeholder="Put a short description"
+        name="description" #description='ngModel' [(ngModel)]="postclip.description">
+      </div>
+      <div class="form-group">
+        <label for="content">Content</label>
+        <input type="text" class="form-control" placeholder="Put a content link"
+        name="content" #content='ngModel' [(ngModel)]="postclip.content">
+      </div>
+      <div class="form-group">
+        <br>
+        <input type="file" name="file" id="file" class="inputfile" #attachment='ngModel' [(ngModel)]="postclip.attachment"/>
+        <label for="file">Attachment</label>
+        <br>
+      </div>
+      <div class="form-group">
+        <select name="board">
+           <option selected value="0"> Choose a board </option>
+           <option value="1">board 1</option>
+           <option value="2">board 2</option>
+           <option value="3">board 3</option>
+           <option value="4">board 4</option>
+           <option value="5">board 5</option>
+           <option value="6">board 6</option>
+        </select>
+      </div>
+      <br>
+      <a type="submit" class="btn btn-success btn-lg" href="#close" [hidden]="submitted">
+         Save
+      </a>
+    </form>
+  </div>
+</div>
