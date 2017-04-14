@@ -11,6 +11,7 @@ import { PostclipService } from './postclip.service';
   styleUrls: ['./postclip.component.css'],
   providers:[ PostclipService ]
 })
+
 export class PostclipComponent implements OnInit {
   postclips: Postclip[];
   errorMessage: string;
@@ -26,12 +27,12 @@ export class PostclipComponent implements OnInit {
   }
 
   getPostclips(){
-    this.postclipService.getPostclips()
-        .subscribe(
+    this.postclipService.getPostclips().subscribe(
           postclips => this.postclips = postclips,
           error => this.errorMessage= <any>error
         )
   }
+
   goToShow(): void{
     let link = ['/proposal'];
     this.router.navigate(link);
