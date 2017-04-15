@@ -27,7 +27,7 @@ export class PostclipService {
     .catch(this.handleError);
   }
 
-  createPostclip(postclip: Postclip): Observable<Hero> {
+  createPostclip(postclip: Postclip): Observable<Postclip> {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
 

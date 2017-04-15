@@ -27,7 +27,7 @@ export class BoardService {
     .catch(this.handleError);
   }
 
-  createBoard(board: Board): Observable<Hero> {
+  createBoard(board: Board): Observable<Board> {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
 
