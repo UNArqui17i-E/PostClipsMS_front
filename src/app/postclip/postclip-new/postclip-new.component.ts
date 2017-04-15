@@ -19,13 +19,13 @@ export class PostclipNewComponent implements OnInit {
 
   constructor(
     private boardService: BoardService,
-    private postclipService: PostclipService,
+    private postclipService: PostclipService//,
     private localStorage: LocalStorageService
   ){}
 
   ngOnInit( ){
     let timer = Observable.timer(0,5000);
-    timer.subscribe(()=> this.getBoards( localStorage.getItem('id') ));
+    timer.subscribe(()=> this.getBoards( 1 );//localStorage.getItem('id') ));
   }
 
   createClip(postclip: Postclip){
