@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule , Routes} from '@angular/router';
+import { LocalStorageModule } from 'angular-2-local-storage';
 
 import { HomepageComponent } from './homepage/homepage.component';
 import { LoginComponent } from './login/index';
@@ -32,7 +33,12 @@ const routes: Routes = [
 ]
 
 @NgModule({
-  imports: [ RouterModule.forRoot(routes) ],
+  imports: [ RouterModule.forRoot(routes),
+    LocalStorageModule.withConfig({
+      prefix: 'app',
+      storageType: 'localStorage'
+    })
+  ],
   exports: [ RouterModule ]
 })
 
