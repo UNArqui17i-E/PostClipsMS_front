@@ -27,6 +27,14 @@ export class BoardService {
     .catch(this.handleError);
   }
 
+  createBoard(board: Board): Observable<Hero> {
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+
+    return this.http.post(this.boardUrl, JSON.stringify( board ),{headers: headers})
+    .map( ( response: Response ) => response.json( ) );
+  }
+
 
   private handleError (error: Response | any) {
   // In a real world app, we might use a remote logging infrastructure

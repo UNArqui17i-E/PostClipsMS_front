@@ -4,7 +4,7 @@
   <div>
     <a href="#close" title="Close" class="close">X</a>
     <h2>Add new clip</h2>
-    <form class="form-group" (ngSubmit)="createPostclip(postclip)"  #postclipForm="ngForm" >
+    <form class="form-group" (ngSubmit)="createClip(postclip)"  #postclipForm="ngForm" >
       <div class="form-group">
         <label for="name">Title:</label>
         <input type="text" class="form-control" placeholder="Enter the title of Clip"
@@ -27,14 +27,9 @@
         <br>
       </div>
       <div class="form-group">
-        <select name="board">
-           <option selected value="0"> Choose a board </option>
-           <option value="1">board 1</option>
-           <option value="2">board 2</option>
-           <option value="3">board 3</option>
-           <option value="4">board 4</option>
-           <option value="5">board 5</option>
-           <option value="6">board 6</option>
+        <select *ngFor="let board of boards" name="board">
+          <option selected value="0"> Choose a board </option>
+          <option value="{{board.id}}">{{board.name}}</option>
         </select>
       </div>
       <br>

@@ -27,8 +27,13 @@ export class PostclipService {
     .catch(this.handleError);
   }
 
+  createPostclip(postclip: Postclip): Observable<Hero> {
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
 
-
+    return this.http.post(this.postclipUrl, JSON.stringify( postclip ),{headers: headers})
+    .map( ( response: Response ) => response.json( ) );
+  }
 
   private handleError (error: Response | any) {
   // In a real world app, we might use a remote logging infrastructure
