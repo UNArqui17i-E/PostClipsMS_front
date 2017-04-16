@@ -21,7 +21,7 @@
 <div class="newPostclip">
   <div>
     <h1>Add new clip</h1>
-    <form class="form-group" (ngSubmit)="createClip(postclip)"  #postclipForm="ngForm" >
+    <form class="form-group" (ngSubmit)="createPostclip(postclip)"  #postclipForm="ngForm" >
       <div class="form-group">
         <label for="name">Title</label>
         <input type="text" class="form-control" placeholder="Enter the title of Clip"
@@ -43,14 +43,14 @@
         <label for="file">Attachment</label>
         <br>
       </div>
-      <div class="form-group">
+      <!-- <div class="form-group">
         <select name="board">
           <option selected>Choose a board</option>
-          <div *ngFor="let board of boards">
+           <div *ngFor="let board of boards">
             <option value = "{{board.id}}" [(ngModel)]="postclip.board_id">{{board.name}}</option>
           </div>
         </select>
-      </div>
+      </div> -->
       <br>
       <a type="submit" class="btn btn-success btn-lg" href="#" [hidden]="submitted">
          Save

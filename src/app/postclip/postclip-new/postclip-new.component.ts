@@ -29,7 +29,10 @@ export class PostclipNewComponent implements OnInit {
     timer.subscribe(()=> this.boardService.getBoardsByUser( 1 ));//localStorage.getItem('id') ));
   }
 
-  createClip(postclip: Postclip){
+  createPostclip(postclip: Postclip){
+
+    postclip.board_id = 1;
+    alert(JSON.stringify( postclip ));
     this.postclipService.createPostclip( postclip );
   }
 

@@ -30,7 +30,7 @@ export class PostclipService {
   createPostclip(postclip: Postclip): Observable<Postclip> {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
-
+    alert(JSON.stringify( postclip ));
     return this.http.post(this.postclipUrl, JSON.stringify( postclip ),{headers: headers})
     .map( ( response: Response ) => response.json( ) );
   }
