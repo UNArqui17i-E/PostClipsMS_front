@@ -1,60 +1,26 @@
 @import url("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css");
 
-.modalDialog {
-  position: fixed;
+.newPostclip{
+  margin-top: -20px;
   font-family: Arial, Helvetica, sans-serif;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background: rgba(0,0,0,0.8);
-  z-index: 99999;
-  opacity:0;
-  -webkit-transition: opacity 400ms ease-in;
-  -moz-transition: opacity 400ms ease-in;
-  transition: opacity 400ms ease-in;
-  pointer-events: none;
+  width: 100%;
+  height: 90% ;
+  position: absolute;
+  background-image: url( /assets/login/images/fondologin.png );
 }
-.modalDialog:target {
-  opacity:1;
-  pointer-events: auto;
-}
-
-.modalDialog > div {
+.newPostclip > div{
+  width: 70%;
   height: auto;
-  position: relative;
-  margin-top: 3%;
-  margin-left: 10%;
-  margin-right: 10%;
-  padding: 5px 20px 13px 20px;
+  position: absolute;
+  z-index: 99999;
   border-radius: 10px;
+  margin-right: 20%;
+  margin-left: 20%;
+  padding: 2% 2% 2% 2%;
   background: #fff;
   background: -moz-linear-gradient(#FFFFFF, #3399FF);
   background: -webkit-linear-gradient(#FFFFFF, #3399FF);
   background: -o-linear-gradient(#FFFFFF, #3399FF);
-}
-
-.close {
-  background: #FF5330;
-  color: #FFFFFF;
-  line-height: 25px;
-  position: absolute;
-  right: -12px;
-  text-align: center;
-  top: -10px;
-  width: 24px;
-  text-decoration: none;
-  font-weight: bold;
-  -webkit-border-radius: 12px;
-  -moz-border-radius: 12px;
-  border-radius: 12px;
-  -moz-box-shadow: 1px 1px 3px #000;
-  -webkit-box-shadow: 1px 1px 3px #000;
-  box-shadow: 1px 1px 3px #000;
-}
-.close:hover { background: #FF0000; }
-input{
-  text-align: center;
 }
 .inputfile {
   width: 0.1px;
@@ -91,5 +57,7 @@ input{
   height: auto;
   width: inherit;
   padding: 5px;
-  font:
+}
+.form-control{
+  text-align: center;
 }
