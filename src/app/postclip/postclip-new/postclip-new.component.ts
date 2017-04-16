@@ -5,7 +5,7 @@ import { PostclipService } from '../postclip.service';
 import { Postclip } from '../postclip';
 import { BoardService } from '../../board/board.service';
 import { Board } from '../../board/board';
-import { LocalStorageService } from 'angular-2-local-storage';
+// import { LocalStorageService } from 'angular-2-local-storage';
 
 @Component({
   selector: 'app-postclip-new',
@@ -16,16 +16,17 @@ export class PostclipNewComponent implements OnInit {
 
   boards: Board[];
   errorMessage: string;
+  postclip = new Postclip;
 
   constructor(
     private boardService: BoardService,
     private postclipService: PostclipService//,
-    private localStorage: LocalStorageService
+    // private localStorage: LocalStorageService
   ){}
 
   ngOnInit( ){
     let timer = Observable.timer(0,5000);
-    timer.subscribe(()=> this.getBoards( 1 );//localStorage.getItem('id') ));
+    timer.subscribe(()=> this.boardService.getBoardsByUser( 1 ));//localStorage.getItem('id') ));
   }
 
   createClip(postclip: Postclip){
@@ -33,7 +34,7 @@ export class PostclipNewComponent implements OnInit {
   }
 
   getBoards( id: number ){
-    this.boardService.getBoardsByUser( id )
+    this.boardService.getBoardsByUser( 1 )
         .subscribe(
           boards => this.boards = boards,
           error => this.errorMessage= <any>error

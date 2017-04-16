@@ -30,7 +30,7 @@ import { WallComponent } from './wall/wall.component';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
-import { LocalStorageModule } from 'angular-2-local-storage';
+//import { LocalStorageModule } from 'angular-2-local-storage';
 
 
 
@@ -45,11 +45,11 @@ import { LocalStorageModule } from 'angular-2-local-storage';
      AppRoutingModule,
      FormsModule,
      NgbModule.forRoot(),
-     HttpModule,
-     LocalStorageModule.withConfig({
-            prefix: 'postclipfront',
-            storageType: 'localStorage'
-        })
+     HttpModule//,
+    //  LocalStorageModule.withConfig({
+    //         prefix: 'postclipfront',
+    //         storageType: 'localStorage'
+    //     })
 
     ],
 
