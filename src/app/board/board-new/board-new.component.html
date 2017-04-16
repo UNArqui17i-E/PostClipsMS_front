@@ -1,24 +1,43 @@
-<a href="#openModal">Open Modal</a>
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="#">Navbar</a>
 
-<div id="openModal" class="modalDialog">
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Disabled</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div class="newPostclip">
   <div>
-    <a href="#close" title="Close" class="close">X</a>
-    <h2>Add new board</h2>
+    <h1>Add new board</h1>
     <form class="form-group" (ngSubmit)="createBoard(board)"  #boardForm="ngForm" >
       <div class="form-group">
-        <label for="name">Category:</label>
-        <input type="text" class="form-control" placeholder="Enter the board category"
+        <label for="name">Category</label>
+        <input type="text" class="form-control" placeholder="Enter the name of new board"
         name="name" #name='ngModel' [(ngModel)]="board.name">
       </div>
-      <div>
-        <div id="content">
-          <a class="btn btn-warning" href="#close" type="submit" [hidden]="submitted"><b>Add clip to board</b></a>
-        </div>
-        <div id="content">
-          <a class="btn btn-success" href="#close" type="submit" [hidden]="submitted"><b>Save</b></a>
-        </div>
-      </div>
       <br>
+      <div class="but">
+        <a type="submit" class="btn btn-warning btn-lg" href="/postclip/new" [hidden]="submitted">
+           New Clip
+        </a>
+      </div>
+      <div class="but">
+        <a type="submit" class="btn btn-success btn-lg" href="#" [hidden]="submitted">
+           Save
+        </a>
+      </div>
     </form>
   </div>
 </div>

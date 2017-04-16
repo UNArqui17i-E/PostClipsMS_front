@@ -11,3 +11,7 @@ ng generate component board-new
 exit
 npm install angular-2-local-storage
 exit
+npm install angular2-modal --save
+npm uninstall angular2-modal --save
+clear
+exit

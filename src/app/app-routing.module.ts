@@ -10,7 +10,7 @@ import { ProposalNewComponent } from './proposal/proposal-new.component';
 import { ProposalShowComponent } from './proposal/proposal-show.component';
 
 import { PostclipComponent } from './postclip/postclip.component';
-import { PostclipNewComponent } from './postclip/postclip-new/postclip-new.component';
+import { PostclipNewComponent } from './postclip/postclip-new/index';
 import { BoardShowComponent } from './board/board-show.component';
 import { BoardNewComponent } from './board/board-new/board-new.component';
 import { WallComponent } from './wall/wall.component';
