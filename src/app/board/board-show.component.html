@@ -1,9 +1,37 @@
 <div class="container">
+  <div class="list-group">
+    <a class="list-group-item list-group-item-action flex-column align-items-start active">
+      <h1 class="headline" align="center">Boards</h1>
+      <hr>
+    </a>
+  </div>
+</div>
+
+
+<div class="container">
   <div *ngIf='board'class="card board-card">
-    <h1>{{board.name}}</h1>
+    <h1 align="center">{{board.name}}</h1>
+    <hr>
+    <br>
     <div class="col-md-12">
       <p>Hi {{ board.user }},</p>
+      <span *ngFor="let postclip of board">
+        <img src="{{postclip.attachment.url}}"  height="250" width="400">
+        <br>
+		
+        <hr>
+      </span>
+	  <button id="button1" onclick="">Remove</button>
     </div>
   </div>
-
 </div>
+
+    <!-- Footer -->
+    <footer>
+     <div align="center" class="row">
+         <div class="col-lg-12">
+             <p>Copyright &copy; PostClip 2017</p>
+         </div>
+     </div>
+     <!-- /.row -->
+    </footer>

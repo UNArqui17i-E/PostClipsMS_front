@@ -9,3 +9,5 @@ ls
 cd app/board/
 ng generate component board-new
 exit
+npm install angular-2-local-storage
+exit

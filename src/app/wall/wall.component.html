@@ -21,15 +21,6 @@
         </div>
 
 </nav>
-<div>
-    <span *ngFor="let board of boards">
-      <a (click)="goToBoard(board)" class="board-link list-group-item list-group-item-action flex-column align-items-start">
-        <h3 class="list-group-item-heading">{{board.name}}</h3>
-        <h5 class="list-group-item-text"> {{board.user}}</h5>
-         <!-- | symbols means pipes (look up) -->
-      </a>
-    </span>
-</div>
 
 <button id="button1" onclick="openNav()">Menu</button>
 
@@ -44,30 +35,30 @@
   </div>
 
        <!-- Page Header -->
+         <!-- /.row -->
          <div class="row">
 
              <div class="col-lg-12">
-                 <h1 class="page-header" align="center" style="font-color:black">Main Wall<br>
-                     <small style="color:499EFF">Visualize anothers boards</small>
-                 </h1>
+               <span *ngFor="let board of boards">
+                 <hr>
+                 <a (click)="goToBoard(board)" class="board-link list-group-item list-group-item-action flex-column align-items-start">
+                   <h3 class="list-group-item-heading">{{board.name}}</h3>
+                   <h5 class="list-group-item-text"> {{board.user}}</h5>
+                   <img class="img-responsive" src="http://placehold.it/700x400" alt="">
+                   <h6>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</h6>
+                    <!-- | symbols means pipes (look up) -->
+                 </a>
+               </span>
              </div>
 
          </div>
-         <!-- /.row -->
 
-         <!-- Projects Row -->
-         <div class="row">
-             <div class="col-md-6 portfolio-item">
-                 <a href="#">
-                     <img class="img-responsive" src="http://placehold.it/700x400" alt="">
-                 </a>
-                 <h6>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</h6>
-             </div>
-             <div class="col-md-6 portfolio-item">
-                 <a href="#">
-                     <img class="img-responsive" src="http://placehold.it/700x400" alt="">
-                 </a>
-                 <h6>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</h6>
-             </div>
-         </div>
-         <!-- /.row -->
+         <!-- Footer -->
+      <footer>
+          <div align="center" class="row">
+              <div class="col-lg-12">
+                  <p>Copyright &copy; PostClip 2017</p>
+              </div>
+          </div>
+          <!-- /.row -->
+      </footer>

@@ -27,9 +27,11 @@
         <br>
       </div>
       <div class="form-group">
-        <select *ngFor="let board of boards" name="board">
+        <select name="board">
           <option selected>Choose a board</option>
-          <option value = "{{board.id}}" [(ngModel)]="postclip.board_id">{{board.name}}</option>
+          <div *ngFor="let board of boards">
+            <option value = "{{board.id}}" [(ngModel)]="postclip.board_id">{{board.name}}</option>
+          </div>
         </select>
       </div>
       <br>
