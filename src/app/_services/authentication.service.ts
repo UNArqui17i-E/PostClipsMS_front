@@ -45,6 +45,23 @@ export class AuthenticationService {
             });*/
     }
 
+    loginMS(email: string, password: string) {
+
+      this.model = new User();
+      this.model.email = email;
+      this.model.password = password;
+      this.model.nick = email;
+      this.model.name = email;
+      let body = JSON.stringify(this.model);
+      let headers = new Headers({ 'Content-Type': 'application/json' });
+      let options = new RequestOptions({ headers: headers });
+      var resul = false;
+      return this.http.post('http://192.168.99.102:4000/user/resources/authentication', body, options)
+                      .map((response: Response) => {
+                        return response.json();
+                      });
+    }
+
     logout() {
         // remove user from local storage to log user out
         localStorage.removeItem('currentUser');

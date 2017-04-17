@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import {RequestOptions, Http, Request, RequestMethod} from '@angular/http';
-
+import {RequestOptions, Http, Request, RequestMethod, Headers} from '@angular/http';
 import { AlertService, AuthenticationService } from '../_services/index';
+import { Observable } from 'rxjs/Rx';
+import { User } from '../_models/index';
 
 @Component({
   moduleId: module.id,
@@ -16,6 +17,8 @@ export class LoginComponent implements OnInit {
     loading = false;
     loading1 = false;
     returnUrl: string;
+    token: string;
+    modelU: User;
     private userLoginUrl = 'http://192.168.99.102:4000/user/resources/authentication/';
     private userCreateUrl = 'http://192.168.99.102:4000/user/resources/users/';
 
@@ -35,13 +38,31 @@ export class LoginComponent implements OnInit {
         this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
     }
 
+
+
     login() {
         this.loading = true;
         this.authenticationService.login(this.model.email, this.model.password)
         .subscribe(
             data1 => {
                 if( data1.login == "True" ){
-                  this.router.navigate([this.returnUrl]);
+                  // this.router.navigate([this.returnUrl]);
+                  this.authenticationService.loginMS(this.model.email, this.model.password)
+                  .subscribe(
+                      data1 => {
+                          if ( data1.token == "Usuario invalido" ){
+
+                          }else{
+                            if (typeof(Storage) !== "undefined") {
+                                localStorage.setItem("token", data1.token.toString( ));
+                                this.router.navigate([this.returnUrl]);
+                            }
+                          }
+                      },
+                      error => {
+                          this.alertService.error(error);
+                          this.loading = false;
+                      });
                 }else{
                     var divL = document.getElementById('avisoLogin');
                     divL.style.display= 'block' ;
@@ -51,28 +72,6 @@ export class LoginComponent implements OnInit {
                 this.alertService.error(error);
                 this.loading = false;
             });
-
-        let token = this.loginMS( this.model.email, this.model.password )
-        if ( token == "Usuario invalido" ){
-
-        }else{
-          if (typeof(Storage) !== "undefined") {
-              localStorage.setItem("email", this.model.email);
-              localStorage.setItem("token", token);
-          } else {
-              document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage!";
-          }
-        }
-    }
-
-    loginMS(email: string, password: string): string{
-
-        let headers = new Headers({ 'Content-Type': 'application/json' });
-        let options = new RequestOptions({ headers: headers });
-
-        let json= '{"name":"' + name + '","password":"' + password + '"}' ;
-
-        return this.http.post( this.userLoginUrl, json, options );
     }
 
     register() {
@@ -102,18 +101,18 @@ export class LoginComponent implements OnInit {
                     this.loading1 = false;
                 });
 
-        let json = '{"name":"' + this.model1.firstName +
-          '", "nick":"' + this.model1.lastName +
-          '", "email":"' + this.model1.username +
-          '", "password":"' + this.model1.password + '"}';
-        this.createUser( json );
+        // let urlSearchParams = new URLSearchParams();
+        // urlSearchParams.append('email', this.model.email);
+        // urlSearchParams.append('password', this.model.password);
+        // let body = urlSearchParams.toString()
+        // this.createUser( body );
     }
 
-    createUser( json: string ){
-        let headers = new Headers({ 'Content-Type': 'application/json' });
-        let options = new RequestOptions({ headers: headers });
-
-        this.http.post( this.userLoginUrl, json, options );
-    }
+    // createUser( body: JSON ){
+    //     let headers = new Headers({ 'Content-Type': 'application/json' });
+    //     let options = new RequestOptions({ headers: headers });
+    //
+    //     this.http.post( this.userCreateUrl, body, options );
+    // }
 
 }
