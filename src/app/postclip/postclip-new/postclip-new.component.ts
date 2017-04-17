@@ -17,6 +17,7 @@ export class PostclipNewComponent implements OnInit {
   boards: Board[];
   errorMessage: string;
   postclip = new Postclip;
+  submitted: boolean = false;
 
   constructor(
     private boardService: BoardService,
@@ -29,8 +30,22 @@ export class PostclipNewComponent implements OnInit {
     timer.subscribe(()=> this.boardService.getBoardsByUser( 1 ));//localStorage.getItem('id') ));
   }
 
-  createClip(postclip: Postclip){
-    this.postclipService.createPostclip( postclip );
+  createPostclip(postclip : Postclip){
+    this.submitted = true
+    alert(postclip.name);
+    // console.log("Entreeeeee");
+    // this.postclip.name = " Test1111111";
+    // this.postclip.description = "Desc 1";
+    // this.postclip.contentLink = "google.com";
+    postclip.board_id = 1;
+    this.postclipService.createPostclip( postclip )
+    .subscribe(
+      data => {return true},
+      error =>{
+        console.log("Error saving postclip");
+        return Observable.throw(error);
+      }
+  );
   }
 
   getBoards( id: number ){

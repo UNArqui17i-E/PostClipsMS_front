@@ -18,10 +18,81 @@
     </ul>
   </div>
 </nav>
-<div class="newPostclip">
+
+<div class="card container form-container newPostclip">
+  <div class="row newPostclip">
+    <div class="col md-6">
+      <h1>Create Postclip</h1>
+      <div>
+        <form (ngSubmit)="createPostclip(postclip)"  #postclipForm="ngForm" >
+          <div class="form-group">
+            <label for="name"> Name</label>
+            <input type="text"
+                class="form-control"
+                placeholder="Name"
+                required
+                name="name"
+                #name='ngModel'
+                [(ngModel)]="postclip.name"
+            >
+            <div [hidden]="name.valid"
+              class="alert alert-danger">
+                 Name is required
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="description">Description</label>
+            <input type="text"
+                class="form-control"
+                required
+                name="description"
+                #description='ngModel'
+                [(ngModel)]="postclip.description"
+            >
+            <div [hidden]="description.valid"
+            class="alert alert-danger">
+                Description is required
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="contentLink">Content to share</label>
+            <input type="text"
+                class="form-control"
+                id="tools"
+                placeholder="http://stackoverflow.com"
+                name="contentLink"
+                #contentLink='ngModel'
+                [(ngModel)]="postclip.contentLink"
+            >
+          </div>
+          <div class="form-group">
+            <select name="board">
+              <option selected>Choose a board</option>
+               <div *ngFor="let board of boards">
+                <option value = "{{board.id}}" [(ngModel)]="postclip.board_id">{{board.name}}</option>
+              </div>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-outline-primary btn-lg"
+          [disabled]="!postclipForm.form.valid"
+          [hidden]="submitted">
+            New postclip
+           </button>
+          <div  [hidden]="!submitted" class="alert alert-success" role="alert">
+            Your postclip has been created <a class="alert-link" routerLink="/wall">go to your wall</a>
+          </div>
+        </form>
+      </div>
+    </div>
+      <div class="col md-6">
+      </div>
+  </div>
+</div>
+
+<!-- <div class="newPostclip">
   <div>
     <h1>Add new clip</h1>
-    <form class="form-group" (ngSubmit)="createClip(postclip)"  #postclipForm="ngForm" >
+    <form  (ngSubmit)="createPostclip()"  #clipForm="ngForm" >
       <div class="form-group">
         <label for="name">Title</label>
         <input type="text" class="form-control" placeholder="Enter the title of Clip"
@@ -35,18 +106,18 @@
       <div class="form-group">
         <label for="content">Content</label>
         <input type="text" class="form-control" placeholder="Put a content link"
-        name="content" #content='ngModel' [(ngModel)]="postclip.content">
+        name="contentLink" #contentLink='ngModel' [(ngModel)]="postclip.contentLink">
       </div>
-      <div class="form-group">
+    <div class="form-group">
         <br>
         <input type="file" name="file" id="file" class="inputfile" #attachment='ngModel' [(ngModel)]="postclip.attachment"/>
         <label for="file">Attachment</label>
         <br>
-      </div>
-      <div class="form-group">
+      </div> -->
+      <!-- <div class="form-group">
         <select name="board">
           <option selected>Choose a board</option>
-          <div *ngFor="let board of boards">
+           <div *ngFor="let board of boards">
             <option value = "{{board.id}}" [(ngModel)]="postclip.board_id">{{board.name}}</option>
           </div>
         </select>
@@ -57,4 +128,4 @@
       </a>
     </form>
   </div>
-</div>
+</div> -->
