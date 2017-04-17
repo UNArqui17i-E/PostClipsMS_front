@@ -81,13 +81,13 @@ export class AuthenticationService {
         // remove user from local storage to log user out
         //localStorage.removeItem('currentUser');
     }
-    createMS( model: User ) {
+    createMS(name: string, nick: string, email: string, password: string) {
 
         this.regis = new User();
-        this.regis.email = model.email;
-        this.regis.password = model.password;
-        this.regis.nick = model.nick;
-        this.regis.name = model.name;
+        this.regis.email = email;
+        this.regis.password = password;
+        this.regis.nick = nick;
+        this.regis.name = name;
         let body = JSON.stringify(this.regis);
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });

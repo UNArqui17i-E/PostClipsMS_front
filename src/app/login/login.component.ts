@@ -53,8 +53,8 @@ export class LoginComponent implements OnInit {
                           if ( data1.token == "Usuario invalido" ){
                           }else{
                             if (typeof(Storage) !== "undefined") {
-                                localStorage.setItem("token", data1.token.toString( ));
                                 localStorage.setItem("id", data1.id.toString( ));
+                                localStorage.setItem("token", data1.token.toString( ));
                                 this.router.navigate([this.returnUrl]);
                             }
                           }
@@ -87,15 +87,12 @@ export class LoginComponent implements OnInit {
 
                       div1.style.display= 'none' ;
                       div.style.display= 'block' ;
-                      this.authenticationService.createMS( this.model1 )
+                      this.authenticationService.createMS( this.model1.firstName, this.model1.lastName, this.model1.username, this.model1.password )
                         .subscribe(
                           data =>{
                             var str = String(data);
                             var n = str.search("201");
                             if( n != -1 ){
-                               this.model.email = this.model1.username;
-                               this.model.password = this.model1.password;
-                               this.login();
                             }
                           }
 
@@ -111,18 +108,6 @@ export class LoginComponent implements OnInit {
                     this.alertService.error(error);
                     this.loading1 = false;
                 });
-    }
-
-    createMS( modelA :any ){
-        this.modelU = new User( );
-        this.modelU.email = modelA.email;
-        this.modelU.password = modelA.password;
-        this.modelU.nick = modelA.nick;
-        this.modelU.name = modelA.name;
-        let body = JSON.stringify(this.modelU);
-        let headers = new Headers({ 'Content-Type': 'application/json' });
-        let options = new RequestOptions({ headers: headers });
-        return this.http.post('http://192.168.99.102:4000/user/resources/users/', body, options);
     }
 
 }
