@@ -51,10 +51,10 @@ export class LoginComponent implements OnInit {
                   .subscribe(
                       data1 => {
                           if ( data1.token == "Usuario invalido" ){
-
                           }else{
                             if (typeof(Storage) !== "undefined") {
                                 localStorage.setItem("token", data1.token.toString( ));
+                                localStorage.setItem("id", data1.id.toString( ));
                                 this.router.navigate([this.returnUrl]);
                             }
                           }
@@ -74,7 +74,7 @@ export class LoginComponent implements OnInit {
             });
     }
 
-    register() {
+    register( ){
         this.loading1 = true;
         this.authenticationService.create(this.model1.firstName, this.model1.lastName, this.model1.username, this.model1.password )
             .subscribe(
@@ -87,12 +87,23 @@ export class LoginComponent implements OnInit {
 
                       div1.style.display= 'none' ;
                       div.style.display= 'block' ;
+                      this.authenticationService.createMS( this.model1 )
+                        .subscribe(
+                          data =>{
+                            var str = String(data);
+                            var n = str.search("201");
+                            if( n != -1 ){
+                               this.model.email = this.model1.username;
+                               this.model.password = this.model1.password;
+                               this.login();
+                            }
+                          }
+
+                      );
 
                     }else{
-
                       div.style.display= 'none' ;
                       div1.style.display= 'block' ;
-
                     }
                     this.loading1 = false;
                 },
@@ -100,19 +111,18 @@ export class LoginComponent implements OnInit {
                     this.alertService.error(error);
                     this.loading1 = false;
                 });
-
-        // let urlSearchParams = new URLSearchParams();
-        // urlSearchParams.append('email', this.model.email);
-        // urlSearchParams.append('password', this.model.password);
-        // let body = urlSearchParams.toString()
-        // this.createUser( body );
     }
 
-    // createUser( body: JSON ){
-    //     let headers = new Headers({ 'Content-Type': 'application/json' });
-    //     let options = new RequestOptions({ headers: headers });
-    //
-    //     this.http.post( this.userCreateUrl, body, options );
-    // }
+    createMS( modelA :any ){
+        this.modelU = new User( );
+        this.modelU.email = modelA.email;
+        this.modelU.password = modelA.password;
+        this.modelU.nick = modelA.nick;
+        this.modelU.name = modelA.name;
+        let body = JSON.stringify(this.modelU);
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+        return this.http.post('http://192.168.99.102:4000/user/resources/users/', body, options);
+    }
 
 }

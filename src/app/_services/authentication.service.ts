@@ -81,4 +81,18 @@ export class AuthenticationService {
         // remove user from local storage to log user out
         //localStorage.removeItem('currentUser');
     }
+    createMS( model: User ) {
+
+        this.regis = new User();
+        this.regis.email = model.email;
+        this.regis.password = model.password;
+        this.regis.nick = model.nick;
+        this.regis.name = model.name;
+        let body = JSON.stringify(this.regis);
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+        return this.http.post('http://192.168.99.102:4000/user/resources/users/', body, options);
+        // remove user from local storage to log user out
+        //localStorage.removeItem('currentUser');
+    }
 }
