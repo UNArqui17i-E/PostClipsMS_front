@@ -27,12 +27,12 @@ export class PostclipService {
     .catch(this.handleError);
   }
 
-  createPostclip(postclip: Postclip): Observable<Postclip> {
+  createPostclip(postclip: Postclip) {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
-    alert(JSON.stringify( postclip ));
+    console.log("Entro")
     return this.http.post(this.postclipUrl, JSON.stringify( postclip ),{headers: headers})
-    .map( ( response: Response ) => response.json( ) );
+    .map( ( response: Response ) => response.json( ) ).catch(this.handleError);
   }
 
   private handleError (error: Response | any) {
