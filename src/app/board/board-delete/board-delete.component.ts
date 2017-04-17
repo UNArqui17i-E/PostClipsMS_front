@@ -3,13 +3,14 @@ import { Board } from '../board';
 import { BoardService } from '../board.service';
 
 @Component({
-  selector: 'app-board-new',
-  templateUrl: './board-new.component.html',
-  styleUrls: ['./board-new.component.css']
+  selector: 'app-board-delete',
+  templateUrl: './board-delete.component.html',
+  styleUrls: ['./board-delete.component.css']
 })
 
-export class BoardNewComponent implements OnInit {
+export class BoardDeleteComponent implements OnInit {
   board = new Board;
+
   constructor(
     private boardService: BoardService
   ){}
@@ -17,8 +18,8 @@ export class BoardNewComponent implements OnInit {
   ngOnInit() {
   }
 
-  createBoard(board: Board){
-    this.boardService.createBoard( board );
+  deleteBoard(board: Board){
+    this.boardService.deleteBoard( board.id );
   }
 
 }

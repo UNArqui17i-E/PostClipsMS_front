@@ -7,7 +7,6 @@ import { Postclip } from './postclip';
 export class PostclipService {
   private postclipUrl = 'http://192.168.99.101:3000/api/v1/post_clips';
 
-
   constructor(
     private http: Http
   ) {}
@@ -21,6 +20,7 @@ export class PostclipService {
   getPostclip(id: number){
     return this.http.get(this.postclipUrl + "/" + id + ".json")
   }
+  
   getPostclipByBoard(id: number){
     return this.http.get(this.postclipUrl + "/clips_by_board/" + id)
     .map((response: Response)=> <Postclip[]>response.json())
@@ -34,6 +34,13 @@ export class PostclipService {
     return this.http.post(this.postclipUrl, JSON.stringify( postclip ),{headers: headers})
     .map( ( response: Response ) => response.json( ) );
   }
+   
+   deletePostClip(id: number) {        
+		return this.http.delete(this.postclipUrl + "/" + id)
+   }
+  
+  
+  
 
   private handleError (error: Response | any) {
   // In a real world app, we might use a remote logging infrastructure

@@ -32,6 +32,10 @@ export class PostclipComponent implements OnInit {
           error => this.errorMessage= <any>error
         )
   }
+  
+  deletePostClip(id: number){
+	this.postclipService.deletePostClip(id)
+  }
 
   goToShow(): void{
     let link = ['/proposal'];

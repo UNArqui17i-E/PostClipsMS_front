@@ -18,10 +18,10 @@
       <span *ngFor="let postclip of board">
         <img src="{{postclip.attachment.url}}"  height="250" width="400">
         <br>
-		
+
         <hr>
       </span>
-	  <button id="button1" onclick="">Remove</button>
+	  <button id="button1" (ngSubmit)="deleteBoard(board.id)">Remove</button>
     </div>
   </div>
 </div>

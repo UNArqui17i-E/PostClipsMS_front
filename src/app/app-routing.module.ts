@@ -17,6 +17,8 @@ import { WallComponent } from './wall/wall.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full'},
+  { path: '#', redirectTo: '/home', pathMatch: 'full'},
+  { path: ' ', redirectTo: '/home', pathMatch: 'full'},
   { path: 'home', component: HomepageComponent },
   { path: 'login', component: LoginComponent },
   { path: 'documents', component: DocumentsComponent },
@@ -26,6 +28,7 @@ const routes: Routes = [
   { path: 'board/:id', component: BoardShowComponent },
   { path: 'boards/new', component: BoardNewComponent },
   { path: 'wall', component: WallComponent },
+  { path: 'postclip/:id', component: PostclipComponent},
   { path: 'postclips', component: PostclipComponent },
   { path: 'postclip/new', component: PostclipNewComponent }
 

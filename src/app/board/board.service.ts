@@ -27,13 +27,17 @@ export class BoardService {
     .catch(this.handleError);
   }
 
-  createBoard(board: Board): Observable<Board> {
+   createBoard(board: Board): Observable<Board> {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
 
     return this.http.post(this.boardUrl, JSON.stringify( board ),{headers: headers})
     .map( ( response: Response ) => response.json( ) );
-  }
+   }
+
+   deleteBoard(id: number) {
+        return this.http.delete(this.boardUrl + "/board?id=" + id )
+   }
 
 
   private handleError (error: Response | any) {
