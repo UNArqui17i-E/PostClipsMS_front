@@ -62,7 +62,7 @@
 .form-control{
   text-align: center;
 }
-#nameR, #desR, #contR, #boardR{
+#alert{
     display: none;
 }
 #subm{

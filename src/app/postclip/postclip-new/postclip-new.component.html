@@ -35,10 +35,6 @@
                 #name='ngModel'
                 [(ngModel)]="postclip.name"
             >
-            <div [hidden]="name.valid" id="nameR"
-              class="alert alert-danger">
-                 Title is required
-            </div>
           </div>
           <div class="form-group">
             <label for="description">Description</label>
@@ -49,10 +45,6 @@
                 #description='ngModel'
                 [(ngModel)]="postclip.description"
             >
-            <div [hidden]="description.valid" id="desR"
-            class="alert alert-danger">
-                Description is required
-            </div>
           </div>
           <div class="form-group">
             <label for="contentLink">Content</label>
@@ -64,10 +56,6 @@
                 #contentLink='ngModel'
                 [(ngModel)]="postclip.contentLink"
             >
-            <div [hidden]="content.valid" id="contR"
-            class="alert alert-danger">
-                Content is required
-            </div>
           </div>
           <div class="form-group">
             <select name="board">
@@ -76,10 +64,10 @@
                 <option value = "{{board.id}}" [(ngModel)]="postclip.board_id">{{board.name}}</option>
               </div>
             </select>
-            <div [hidden]="content.valid" id="contR"
-            class="alert alert-danger">
-                board is required
-            </div>
+          </div>
+          <div [hidden]="content.valid" id="alert"
+          class="alert alert-danger">
+              Any fields cannot be empty
           </div>
           <button type="submit" class="btn btn-outline-primary btn-lg"
           [disabled]="!postclipForm.form.valid"

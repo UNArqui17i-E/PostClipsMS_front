@@ -7,9 +7,9 @@ import { Board } from './board';
 @Injectable()
 export class BoardService {
   private boardUrl = 'http://192.168.99.101:5000/api/v1';
+  private http: Http
 
   constructor(
-    private http: Http
   ) {}
 
   getBoards():Observable<Board[]>{
