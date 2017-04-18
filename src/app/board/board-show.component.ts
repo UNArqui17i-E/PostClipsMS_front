@@ -1,10 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ActivatedRoute, Params,} from '@angular/router';
+import { ActivatedRoute, Params, Router} from '@angular/router';
+
 import {Http, Response, Headers, RequestOptions} from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 import { Board } from './board';
 import { BoardService} from './board.service';
-import { Router } from '@angular/router';
 
 
 @Component({

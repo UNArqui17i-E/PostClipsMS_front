@@ -19,6 +19,8 @@
           </form>
         </div>
       </nav>
+
+
 <h1>Postclips</h1>
 <div class="container">
     <div class="row">
@@ -27,10 +29,6 @@
           <hr>
           <a (click)="goToShow()" class="postclip-link list-group-item list-group-item-action flex-column align-items-start">
             <h4 class="list-group-item-heading">{{postclip.name}}</h4>
-
-             <!-- <p class="list-group-item-text">{{postclip.hourly_rate * postclip.estimated_hours |
-              currency: 'USD':true:'.0'  }}</p>  -->
-              <!-- | symbols means pipes (look up) -->
             <img src="{{postclip.attachment.url}}"  height="250" width="400">
             <h5 class="list-group-item-heading">{{postclip.description}}</h5>
             <button id="button1" class="form-control  " onclick="">Like</button>

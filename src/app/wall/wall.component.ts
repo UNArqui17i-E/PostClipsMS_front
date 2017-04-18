@@ -32,7 +32,8 @@ export class WallComponent implements OnInit {
         )
   }
   goToBoard(board:Board): void{
-    let link = ['/board',board.id];
+    localStorage.setItem("b_idShow", board.id.toString());
+    let link = [board.id,'postclips'];
     this.router.navigate(link);
   }
 

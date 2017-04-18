@@ -22,8 +22,12 @@ export class PostclipComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    let timer = Observable.timer(0,10000);
-    timer.subscribe(()=> this.getPostclips());
+    let board_id  =  parseInt(localStorage.getItem("b_idShow"));
+
+    this.postclipService.getPostclipByBoard( board_id ).subscribe(
+          postclips => this.postclips = postclips,
+          error => this.errorMessage= <any>error
+        )
   }
 
   getPostclips(){
