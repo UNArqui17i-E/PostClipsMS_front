@@ -6,6 +6,7 @@ import { BoardService } from '../../board/board.service';
 import { Board } from '../../board/board';
 import { ActivatedRoute, Params, Router} from '@angular/router';
 import {Http, Response, Headers, RequestOptions} from '@angular/http';
+import { AuthenticationService } from '../../_services/index';
 // import { LocalStorageService } from 'angular-2-local-storage';
 
 @Component({
@@ -26,13 +27,28 @@ export class PostclipNewComponent implements OnInit {
     private route: ActivatedRoute,
     private boardService: BoardService,
     private http: Http,
+    private router: Router,
+    private authenticationService: AuthenticationService,
     private postclipService: PostclipService//,
+
     // private localStorage: LocalStorageService
   ){}
 
   ngOnInit( ){
-    let timer = Observable.timer(0,5000);
-    timer.subscribe(()=> this.boardService.getBoardsByUser( 1 ));//localStorage.getItem('id') ));
+    //let timer = Observable.timer(0,5000);
+    //timer.subscribe(()=> this.boardService.getBoardsByUser( 1 ));//localStorage.getItem('id') ));
+    this.authenticationService.validate( localStorage.getItem('token') )
+    .subscribe(
+      data2 => {
+          alert(data2.valido);
+          if (data2.valido == "false" ){
+
+            this.router.navigate(['\login']);
+
+          }
+
+
+      });
   }
 
   @Input()

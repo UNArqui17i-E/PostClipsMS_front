@@ -6,7 +6,7 @@ import { Board } from './board';
 
 @Injectable()
 export class BoardService {
-  private boardUrl = 'http://192.168.99.101:5000/api/v1';
+  private boardUrl = 'http://192.168.99.102:5000/api/v1';
 
   constructor(
     private http: Http
@@ -32,7 +32,7 @@ export class BoardService {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
 
-    return this.http.post(this.boardUrl, JSON.stringify( board ),{headers: headers})
+    return this.http.post(this.boardUrl + "/board", JSON.stringify( board ),{headers: headers})
     .map( ( response: Response ) => response.json( ) );
   }
 

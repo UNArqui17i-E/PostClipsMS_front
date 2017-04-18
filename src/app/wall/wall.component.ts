@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Rx';
 import { BoardService } from '../board/board.service';
 import { Board } from '../board/board';
-
+import { AuthenticationService } from '../_services/index';
 
 @Component({
   moduleId: module.id,
@@ -18,11 +18,23 @@ export class WallComponent implements OnInit {
   mode = "Observable";
   constructor(
     private boardsService: BoardService,
-    private router: Router
+    private router: Router,
+    private authenticationService: AuthenticationService
   ){}
   ngOnInit(){
     let timer = Observable.timer(0,5000);
     timer.subscribe(()=> this.getBoards());
+    this.authenticationService.validate( localStorage.getItem('token') )
+    .subscribe(
+      data2 => {
+          if (data2.valido == "false" ){
+
+            this.router.navigate(['\login']);
+
+          }
+
+
+      });
   }
   getBoards(){
     this.boardsService.getBoards()
