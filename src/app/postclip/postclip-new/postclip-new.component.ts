@@ -21,27 +21,30 @@ export class PostclipNewComponent implements OnInit {
 
   constructor(
     private boardService: BoardService,
-    private postclipService: PostclipService//,
-    // private localStorage: LocalStorageService
+    private postclipService: PostclipService
   ){}
 
   ngOnInit( ){
     let timer = Observable.timer(0,5000);
-    timer.subscribe(()=> this.boardService.getBoardsByUser( 1 ));//localStorage.getItem('id') ));
+    var id = +localStorage.getItem("id");
+    timer.subscribe(
+      ()=> this.boardService.getBoardsByUser( id )
+             .subscribe(
+                data => {
+                    this.boards = <Board[]>data;
+                }
+             )
+    );
   }
 
   createPostclip(postclip : Postclip){
     this.submitted = true
     alert(postclip.name);
-    // console.log("Entreeeeee");
-    // this.postclip.name = " Test1111111";
-    // this.postclip.description = "Desc 1";
-    // this.postclip.contentLink = "google.com";
     postclip.board_id = 1;
-    if( postclip.name == "" ){
+    if( postclip.name == null ){
       document.getElementById("nameR").setAttribute( "display", "block" );
     }else{
-      if( postclip.description == "" ){
+      if( postclip.description == null ){
         document.getElementById("descR").setAttribute( "display", "block" );
       }else{
         if( postclip.contentLink == "" ){
