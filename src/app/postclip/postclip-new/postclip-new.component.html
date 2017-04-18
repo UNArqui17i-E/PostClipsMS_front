@@ -2,15 +2,18 @@
   <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <a class="navbar-brand" href="/home">Postclips</a>
+  <a class="navbar-brand" href="#">Navbar</a>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/wall">Wall</a>
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Disabled</a>
       </li>
     </ul>
   </div>
@@ -32,10 +35,6 @@
                 #name='ngModel'
                 [(ngModel)]="postclip.name"
             >
-            <div [hidden]="name.valid" id="nameR"
-              class="alert alert-danger">
-                 Title is required
-            </div>
           </div>
           <div class="form-group">
             <label for="description">Description</label>
@@ -46,10 +45,6 @@
                 #description='ngModel'
                 [(ngModel)]="postclip.description"
             >
-            <div [hidden]="description.valid" id="desR"
-            class="alert alert-danger">
-                Description is required
-            </div>
           </div>
           <div class="form-group">
             <label for="contentLink">Content</label>
@@ -61,22 +56,10 @@
                 #contentLink='ngModel'
                 [(ngModel)]="postclip.contentLink"
             >
-            <div [hidden]="content.valid" id="contR"
-            class="alert alert-danger">
-                Content is required
-            </div>
           </div>
-          <div class="form-group">
-            <select name="board">
-              <option selected value="0">Choose a board</option>
-               <div *ngFor="let board of boards">
-                <option value = "{{board.id}}" [(ngModel)]="postclip.board_id">{{board.name}}</option>
-              </div>
-            </select>
-            <div [hidden]="content.valid" id="contR"
-            class="alert alert-danger">
-                board is required
-            </div>
+          <div [hidden]="content.valid" id="alert"
+          class="alert alert-danger">
+              Any fields cannot be empty
           </div>
           <button type="submit" class="btn btn-outline-primary btn-lg"
           [disabled]="!postclipForm.form.valid"
