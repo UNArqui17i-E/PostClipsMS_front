@@ -12,14 +12,18 @@
                     <li class="nav-item">
                         <a class="nav-link"  style="color:black" href="home#about">About</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" *ngIf="!register()">
                       <!-- Trigger the modal with a button -->
                       <!--<button  class="btn-link nav-link" style="color:white;color: white;font-family: arial;" id="myBtn">LOGIN</button>-->
                       <a class="nav-link" style="color:black" href="login">Login</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" *ngIf="!register()">
                       <a class="nav-link" style="color:black" href="login">Register</a>
                     </li>
+                    <li class="nav-item" *ngIf="register()">
+                      <a (click)="logout()" class="nav-link" style="color:black">Logout</a>
+                    </li>
+                    <li class="nav-item">
                     <li class="nav-item">
                       <a class="nav-link" style="color:black" href="home#download">Contact Us</a>
                     </li>
@@ -45,6 +49,7 @@
             </div>
         </div>
     </header>
+
 
 
 
