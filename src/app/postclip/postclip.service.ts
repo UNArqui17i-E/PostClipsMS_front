@@ -2,10 +2,9 @@ import { Injectable } from '@angular/core';
 import { Http,Response,Headers,RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 import { Postclip } from './postclip';
-
 @Injectable()
 export class PostclipService {
-  private postclipUrl = 'http://192.168.99.102:3000/api/v1/post_clips';
+  private postclipUrl = 'http://192.168.99.101:3000/api/v1/post_clips';
 
 
   constructor(
@@ -23,9 +22,11 @@ export class PostclipService {
     return this.http.get(this.postclipUrl + "/" + id + ".json")
   }
   getPostclipByBoard(id: number){
+
     return this.http.get(this.postclipUrl + "/clips_by_board/" + id)
     .map((response: Response)=> <Postclip[]>response.json())
     .catch(this.handleError);
+
   }
 
   createPostclip(postclip: Postclip) {

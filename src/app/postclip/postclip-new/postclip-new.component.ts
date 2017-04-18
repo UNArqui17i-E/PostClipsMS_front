@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { Headers } from '@angular/http';
 import { PostclipService } from '../postclip.service';
 import { Postclip } from '../postclip';
 import { BoardService } from '../../board/board.service';
 import { Board } from '../../board/board';
+import { ActivatedRoute, Params, Router} from '@angular/router';
+import {Http, Response, Headers, RequestOptions} from '@angular/http';
 // import { LocalStorageService } from 'angular-2-local-storage';
 
 @Component({
@@ -18,9 +19,13 @@ export class PostclipNewComponent implements OnInit {
   errorMessage: string;
   postclip = new Postclip;
   submitted: boolean = false;
+  routeId : number;
+  id: number;
 
   constructor(
+    private route: ActivatedRoute,
     private boardService: BoardService,
+    private http: Http,
     private postclipService: PostclipService//,
     // private localStorage: LocalStorageService
   ){}
@@ -30,14 +35,14 @@ export class PostclipNewComponent implements OnInit {
     timer.subscribe(()=> this.boardService.getBoardsByUser( 1 ));//localStorage.getItem('id') ));
   }
 
+  @Input()
+  board:Board;
+
   createPostclip(postclip : Postclip){
     this.submitted = true
-    alert(postclip.name);
-    // console.log("Entreeeeee");
-    // this.postclip.name = " Test1111111";
-    // this.postclip.description = "Desc 1";
-    // this.postclip.contentLink = "google.com";
-    postclip.board_id = 1;
+    //alert(this.board.id);
+    alert(localStorage.getItem("board_id"));
+    postclip.board_id = parseInt(localStorage.getItem("board_id"));
     this.postclipService.createPostclip( postclip )
     .subscribe(
       data => {return true},
