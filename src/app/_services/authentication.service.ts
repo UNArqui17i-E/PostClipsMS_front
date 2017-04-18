@@ -56,7 +56,7 @@ export class AuthenticationService {
       let headers = new Headers({ 'Content-Type': 'application/json' });
       let options = new RequestOptions({ headers: headers });
       var resul = false;
-      return this.http.post('http://192.168.99.102:4000/user/resources/authentication', body, options)
+      return this.http.post('http://192.168.99.101:4000/user/resources/authentication', body, options)
                       .map((response: Response) => {
                         return response.json();
                       });
@@ -91,7 +91,7 @@ export class AuthenticationService {
         let body = JSON.stringify(this.regis);
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
-        return this.http.post('http://192.168.99.102:4000/user/resources/users/', body, options);
+        return this.http.post('http://192.168.99.101:4000/user/resources/users/', body, options);
         // remove user from local storage to log user out
         //localStorage.removeItem('currentUser');
     }
