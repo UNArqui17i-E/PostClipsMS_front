@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Rx';
 import { Postclip } from './postclip';
 @Injectable()
 export class PostclipService {
-  private postclipUrl = 'http://192.168.99.101:3000/api/v1/post_clips';
+  private postclipUrl = 'http://192.168.99.102:3000/api/v1/post_clips';
 
 
   constructor(
