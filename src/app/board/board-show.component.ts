@@ -4,6 +4,7 @@ import {Http, Response, Headers, RequestOptions} from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 import { Board } from './board';
 import { BoardService} from './board.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -17,7 +18,8 @@ export class BoardShowComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private boardService: BoardService,
-    private http: Http
+    private http: Http,
+    private router: Router
   ){}
 
   @Input()
@@ -29,5 +31,14 @@ export class BoardShowComponent implements OnInit {
         this.boardService.getBoard(+params['id']));
     boardRequest.subscribe(response => this.board = response.json());
   }
+  goToCreatePostclip(board:Board){
+    // alert(board.id);
+    localStorage.setItem("board_id", board.id.toString());
+
+    alert(  localStorage.getItem("board_id"))
+    let link = ['/postclip/new'];
+    this.router.navigate(link);
+  }
+
 
 }
