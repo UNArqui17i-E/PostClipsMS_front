@@ -62,3 +62,9 @@
 .form-control{
   text-align: center;
 }
+#nameR, #desR, #contR, #boardR{
+    display: none;
+}
+#subm{
+    display: none;
+}

@@ -38,14 +38,35 @@ export class PostclipNewComponent implements OnInit {
     // this.postclip.description = "Desc 1";
     // this.postclip.contentLink = "google.com";
     postclip.board_id = 1;
-    this.postclipService.createPostclip( postclip )
-    .subscribe(
-      data => {return true},
-      error =>{
-        console.log("Error saving postclip");
-        return Observable.throw(error);
+    if( postclip.name == "" ){
+      document.getElementById("nameR").setAttribute( "display", "block" );
+    }else{
+      if( postclip.description == "" ){
+        document.getElementById("descR").setAttribute( "display", "block" );
+      }else{
+        if( postclip.contentLink == "" ){
+          document.getElementById("contR").setAttribute( "display", "block" );
+        }else{
+          if( postclip.board_id == 0 ){
+            document.getElementById("boardR").setAttribute( "display", "block" );
+          }else{
+            this.postclipService.createPostclip( postclip )
+            .subscribe(
+              data => {
+                var str = String(data);
+                var n = str.search("201");
+                if( n != -1 ){
+                  document.getElementById("sumb").setAttribute( "display", "block" );
+                }
+              }, error =>{
+                console.log("Error saving postclip");
+                return Observable.throw(error);
+              }
+            );
+          }
+        }
       }
-  );
+    }
   }
 
   getBoards( id: number ){
