@@ -14,8 +14,9 @@
   position: absolute;
   z-index: 99999;
   border-radius: 10px;
-  margin-right: 20%;
-  margin-left: 20%;
+  margin-top: 1%;
+  margin-right: 13%;
+  margin-left: 13%;
   padding: 2% 2% 2% 2%;
   background: #fff;
   background: -moz-linear-gradient(#FFFFFF, #3399FF);
