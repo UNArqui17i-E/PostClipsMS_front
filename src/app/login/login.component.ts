@@ -56,8 +56,9 @@ export class LoginComponent implements OnInit {
 // prueba del validate
 
 let bool = this.authenticationService.validate( data1.token.toString( ) );
-console.log( typeof( bool ) );
-if( bool ){
+console.log( String(bool) );
+console.log( "PUTO MUNDO" );
+if( String(bool) == "true" ){
   this.router.navigate([this.returnUrl]);
 }else{
 }

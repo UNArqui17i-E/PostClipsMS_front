@@ -22,7 +22,7 @@ export class AuthenticationService {
       let headers = new Headers({ 'Content-Type': 'application/json' });
       let options = new RequestOptions({ headers: headers });
       var resul = false;
-      return this.http.post('http://192.168.99.101:4001/user/resources/ldap', body, options)
+      return this.http.post('http://192.168.99.102:4001/user/resources/ldap', body, options)
                       .map((response: Response) => {
                 // login successful if there's a jwt token in the response
                 return response.json();
@@ -57,7 +57,7 @@ export class AuthenticationService {
       let headers = new Headers({ 'Content-Type': 'application/json' });
       let options = new RequestOptions({ headers: headers });
       var resul = false;
-      return this.http.post('http://192.168.99.101:4000/user/resources/authentication', body, options)
+      return this.http.post('http://192.168.99.102:4000/user/resources/authentication', body, options)
                       .map((response: Response) => {
                         return response.json();
                       });
@@ -78,7 +78,7 @@ export class AuthenticationService {
         let body = JSON.stringify(this.regis);
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
-        return this.http.post('http://192.168.99.101:4001/user/resources/ldapcruds', body, options);
+        return this.http.post('http://192.168.99.102:4001/user/resources/ldapcruds', body, options);
         // remove user from local storage to log user out
         //localStorage.removeItem('currentUser');
     }
@@ -92,27 +92,27 @@ export class AuthenticationService {
         let body = JSON.stringify(this.regis);
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
-        return this.http.post('http://192.168.99.101:4000/user/resources/users/', body, options);
+        return this.http.post('http://192.168.99.102:4000/user/resources/users/', body, options);
         // remove user from local storage to log user out
         //localStorage.removeItem('currentUser');
 
     }
 
-    validate(  token: string ):boolean{
+    validate(  token: string ):any{
         this.valide( token ).subscribe(
           data =>{
             // let valid:boolean;
-            console.log( String(data.valido) );
+            // console.log( String(data.valido) );
             if( data.valido == "true"){
               console.log( "validate true" );
-              this.authentication = true;
+              return true;
             }else{
               console.log( "validate false" );
-              this.authentication = false;
+              return false;
             }
         });
-        console.log( this.authentication );
-        return this.authentication;
+        // console.log( String(this.authentication) );
+        // return this.authentication;
     }
 
     valide( token: string ){
@@ -122,7 +122,7 @@ export class AuthenticationService {
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
         let valid: boolean;
-        return this.http.post('http://192.168.99.101:4000/user/resources/verification/', body, options)
+        return this.http.post('http://192.168.99.102:4000/user/resources/verification/', body, options)
           .map((response: Response) => {
             return response.json();
           });
