@@ -37,8 +37,9 @@ export class PostclipComponent implements OnInit {
         )
   }
 
-  goToShow(): void{
-    let link = ['/proposal'];
+  goToCreatePostclip(){
+    // alert(board.id);
+    let link = ['/postclip/new'];
     this.router.navigate(link);
   }
 }

@@ -1,6 +1,4 @@
-    <button id="button1" onclick="openNav()">Menu</button>
-
-    <!--Navbar-->
+<!--Navbar-->
       <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -12,22 +10,29 @@
             <li class="nav-item active">
               <a class="nav-link" href="\home">Index <span class="sr-only">(current)</span></a>
             </li>
+
           </ul>
           <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="text" placeholder="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
           </form>
+
         </div>
       </nav>
 
-
 <h1>Postclips</h1>
-<div class="container">
+<!-- <div class="container"> -->
     <div class="row">
+      <div align="center" class="col-lg-12">
+      <a (click)="goToCreatePostclip()" class="board-link list-group-item list-group-item-action flex-column align-items-start">
+        <h4 class="list-group-item-heading">New postclip</h4>
+        <img src="https://www.google.com.co/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0ahUKEwjiz_Cjs63TAhXBYyYKHd0yCGkQjRwIBw&url=http%3A%2F%2Fchadholtz.net%2Fplus-sign-clip-art%2F&psig=AFQjCNECfgp-A1odXmAmu0j8wOZ9Bhu1Uw&ust=1492584077782270"  height="250" width="400">
+      </a>
+      </div>
       <div align="center" class="col-lg-12">
         <span *ngFor="let postclip of postclips">
           <hr>
-          <a (click)="goToShow()" class="postclip-link list-group-item list-group-item-action flex-column align-items-start">
+          <a class="postclip-link list-group-item list-group-item-action flex-column align-items-start">
             <h4 class="list-group-item-heading">{{postclip.name}}</h4>
             <img src="{{postclip.attachment.url}}"  height="250" width="400">
             <h5 class="list-group-item-heading">{{postclip.description}}</h5>
@@ -36,14 +41,14 @@
         </span>
       </div>
   </div>
-</div>
+<!-- </div> -->
 
-     <!-- Footer -->
-      <footer>
-          <div align="center" class="row">
-              <div class="col-lg-12">
-                  <p>Copyright &copy; PostClip 2017</p>
-              </div>
-          </div>
-          <!-- /.row -->
-      </footer>
+<!-- Footer -->
+<footer>
+    <div align="center" class="row">
+        <div class="col-lg-12">
+            <p>Copyright &copy; PostClip 2017</p>
+        </div>
+    </div>
+    <!-- /.row -->
+</footer>
