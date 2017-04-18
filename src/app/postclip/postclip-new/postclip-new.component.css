@@ -19,9 +19,9 @@
   margin-left: 13%;
   padding: 2% 2% 2% 2%;
   background: #fff;
-  background: -moz-linear-gradient(#FFFFFF, #3399FF);
+  /*background: -moz-linear-gradient(#FFFFFF, #3399FF);
   background: -webkit-linear-gradient(#FFFFFF, #3399FF);
-  background: -o-linear-gradient(#FFFFFF, #3399FF);
+  background: -o-linear-gradient(#FFFFFF, #3399FF);*/
 }
 .inputfile {
   width: 0.1px;
@@ -62,7 +62,7 @@
 .form-control{
   text-align: center;
 }
-#nameR, #desR, #contR, #boardR{
+#alert{
     display: none;
 }
 #subm{
