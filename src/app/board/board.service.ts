@@ -28,6 +28,7 @@ export class BoardService {
   }
 
   createBoard(board: Board): Observable<Board> {
+    alert("Entro");
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
 

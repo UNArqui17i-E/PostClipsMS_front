@@ -16,6 +16,7 @@ export class BoardNewComponent implements OnInit {
   }
 
   createBoard(board: Board){
+    alert("Entro2");
     board.user = 1;
     this.boardService.createBoard( board );
   }

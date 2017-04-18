@@ -35,15 +35,14 @@
      <!-- /.row -->
      <div class="row">
 
-         <div class="col-lg-12">
+         <div align="center"  class="col-lg-12">
            <span *ngFor="let board of boards">
              <hr>
              <a (click)="goToBoard(board)" class="board-link list-group-item list-group-item-action flex-column align-items-start">
                <h3 class="list-group-item-heading">{{board.name}}</h3>
                <h5 class="list-group-item-text"> {{board.user}}</h5>
-               <img class="img-responsive" src="http://placehold.it/700x400" alt="">
-               <h6>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</h6>
-                <!-- | symbols means pipes (look up) -->
+               <img class="img-responsive" src="/assets/clips/images/placeholder.jpg"  alt="">
+               <h4>Postclip: Picture your ideas, thanks for sharing your content with us</h4>
              </a>
            </span>
          </div>
