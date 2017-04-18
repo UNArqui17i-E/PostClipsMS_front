@@ -46,31 +46,31 @@ export class LoginComponent implements OnInit {
                 if( data1.login == "True" ){
                   // this.router.navigate([this.returnUrl]);
                   this.authenticationService.loginMS(this.model.email, this.model.password)
-                  .subscribe(
-                      data1 => {
-                          if ( data1.token == "Usuario invalido" ){
-                          }else{
-                            if (typeof(Storage) !== "undefined") {
-                                localStorage.setItem("id", data1.id.toString( ));
-                                localStorage.setItem("token", data1.token.toString( ));
-// prueba del validate
-
-let bool = this.authenticationService.validate( data1.token.toString( ) );
-console.log( typeof( bool ) );
-if( bool ){
-  this.router.navigate([this.returnUrl]);
-}else{
-}
-// //
+//                   .subscribe(
+//                       data1 => {
+//                           if ( data1.token == "Usuario invalido" ){
+//                           }else{
+//                             if (typeof(Storage) !== "undefined") {
+//                                 localStorage.setItem("id", data1.id.toString( ));
+//                                 localStorage.setItem("token", data1.token.toString( ));
+// // prueba del validate
 //
-                                // this.router.navigate([this.returnUrl]);
-                            }
-                          }
-                      },
-                      error => {
-                          this.alertService.error(error);
-                          this.loading = false;
-                      });
+//     let bool = this.authenticationService.validate( data1.token.toString( ) );
+//     console.log( typeof( bool ) );
+//     if( bool ){
+//       this.router.navigate([this.returnUrl]);
+//     }else{
+//     }
+// // //
+// //
+//                                 // this.router.navigate([this.returnUrl]);
+//                             }
+//                           }
+//                       },
+//                       error => {
+//                           this.alertService.error(error);
+//                           this.loading = false;
+//                       });
                 }else{
                     var divL = document.getElementById('avisoLogin');
                     divL.style.display= 'block' ;
