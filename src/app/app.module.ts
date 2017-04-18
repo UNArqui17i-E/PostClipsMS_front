@@ -29,6 +29,7 @@ import { WallComponent } from './wall/wall.component';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { PersonalWallComponent } from './wall/personal-wall/personal-wall.component';
 
 //import { LocalStorageModule } from 'angular-2-local-storage';
 
@@ -66,7 +67,8 @@ import { AppRoutingModule } from './app-routing.module';
     BoardShowComponent,
     BoardNewComponent,
     WallComponent,
-    PostclipNewComponent
+    PostclipNewComponent,
+    PersonalWallComponent
 
 
    ],

@@ -15,3 +15,6 @@ npm install angular2-modal --save
 npm uninstall angular2-modal --save
 clear
 exit
+cd src/app/wall/
+ng generate component personal-wall
+exit
