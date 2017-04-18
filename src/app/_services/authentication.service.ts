@@ -9,6 +9,7 @@ export class AuthenticationService {
 
     model: User;
     regis: User;
+    authentication:boolean;
 
     login(email: string, password: string) {
 
@@ -96,7 +97,25 @@ export class AuthenticationService {
         //localStorage.removeItem('currentUser');
 
     }
-    validate( token: string ){
+
+    validate(  token: string ):boolean{
+        this.valide( token ).subscribe(
+          data =>{
+            // let valid:boolean;
+            console.log( String(data.valido) );
+            if( data.valido == "true"){
+              console.log( "validate true" );
+              this.authentication = true;
+            }else{
+              console.log( "validate false" );
+              this.authentication = false;
+            }
+        });
+        console.log( this.authentication );
+        return this.authentication;
+    }
+
+    valide( token: string ){
         let jsonToken = '{"token":"' + token + '"}';
         var body = JSON.parse(jsonToken);
 

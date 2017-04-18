@@ -55,13 +55,12 @@ export class LoginComponent implements OnInit {
                                 localStorage.setItem("token", data1.token.toString( ));
 // prueba del validate
 
-this.authenticationService.validate( data1.token.toString( ) ).subscribe(
-  data =>{
-    if( data.valido == "true" ){
-        this.router.navigate([this.returnUrl]);
-    }else{
-    }
-  });
+let bool = this.authenticationService.validate( data1.token.toString( ) );
+console.log( typeof( bool ) );
+if( bool ){
+  this.router.navigate([this.returnUrl]);
+}else{
+}
 // //
 //
                                 // this.router.navigate([this.returnUrl]);
