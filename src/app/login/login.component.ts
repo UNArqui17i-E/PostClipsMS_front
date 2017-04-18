@@ -19,8 +19,6 @@ export class LoginComponent implements OnInit {
     returnUrl: string;
     token: string;
     modelU: User;
-    private userLoginUrl = 'http://192.168.99.102:4000/user/resources/authentication/';
-    private userCreateUrl = 'http://192.168.99.102:4000/user/resources/users/';
 
     constructor(
         private route: ActivatedRoute,
@@ -55,7 +53,18 @@ export class LoginComponent implements OnInit {
                             if (typeof(Storage) !== "undefined") {
                                 localStorage.setItem("id", data1.id.toString( ));
                                 localStorage.setItem("token", data1.token.toString( ));
-                                this.router.navigate([this.returnUrl]);
+// prueba del validate
+
+let bool = this.authenticationService.validate( data1.token.toString( ) );
+console.log( String(bool) );
+console.log( "PUTO MUNDO" );
+if( String(bool) == "true" ){
+  this.router.navigate([this.returnUrl]);
+}else{
+}
+// //
+//
+                                // this.router.navigate([this.returnUrl]);
                             }
                           }
                       },

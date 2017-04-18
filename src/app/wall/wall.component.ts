@@ -16,14 +16,17 @@ export class WallComponent implements OnInit {
   boards: Board[];
   errorMessage: string;
   mode = "Observable";
+
   constructor(
     private boardsService: BoardService,
     private router: Router
   ){}
+
   ngOnInit(){
     let timer = Observable.timer(0,5000);
     timer.subscribe(()=> this.getBoards());
   }
+
   getBoards(){
     this.boardsService.getBoards()
         .subscribe(
@@ -31,9 +34,20 @@ export class WallComponent implements OnInit {
           error => this.errorMessage= <any>error
         )
   }
+
+  getBoardsByUser(){
+    alert("true");
+  	var nombre = +localStorage.getItem("id");
+    alert(nombre);
+  	this.boardsService.getBoardsByUser(nombre);
+  }
+
   goToBoard(board:Board): void{
     let link = ['/board',board.id];
     this.router.navigate(link);
   }
+
+
+
 
 }

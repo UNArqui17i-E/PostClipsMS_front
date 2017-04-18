@@ -21,7 +21,9 @@ export class BoardService {
   getBoard(id: number){
     return this.http.get(this.boardUrl + "/board?id=" + id )
   }
+
   getBoardsByUser(id: number){
+    alert("entro");
     return this.http.get(this.boardUrl + "/boardsbyuser?id=" + id )
     .map((response: Response)=> <Board[]>response.json())
     .catch(this.handleError);

@@ -5,14 +5,15 @@ import { Postclip } from './postclip';
 
 @Injectable()
 export class PostclipService {
-  private postclipUrl = 'http://192.168.99.101:3000/api/v1/post_clips';
+  private postclipUrl = 'http://192.168.99.102:3000/api/v1/post_clips';
 
   constructor(
     private http: Http
   ) {}
 
   getPostclips():Observable<Postclip[]>{
-    return this.http.get(this.postclipUrl)
+    var id = 1;
+    return this.http.get(this.postclipUrl + "/clips_by_board/" + id)
     .map((response: Response)=> <Postclip[]>response.json())
     .catch(this.handleError);
   }
