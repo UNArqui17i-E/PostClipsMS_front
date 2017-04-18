@@ -8,22 +8,14 @@
 </div>
 
 
-<div class="container">
+<<div class="container">
   <div *ngIf='board'class="card board-card">
-    <h1 align="center">{{board.name}}</h1>
-    <hr>
-    <br>
+    <h1>{{board.name}}</h1>
     <div class="col-md-12">
       <p>Hi {{ board.user }},</p>
-      <span *ngFor="let postclip of board">
-        <img src="{{postclip.attachment.url}}"  height="250" width="400">
-        <br>
-		
-        <hr>
-      </span>
-	  <button id="button1" onclick="">Remove</button>
     </div>
   </div>
+
 </div>
 
     <!-- Footer -->
