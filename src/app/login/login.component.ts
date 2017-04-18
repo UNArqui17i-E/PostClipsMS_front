@@ -29,8 +29,6 @@ export class LoginComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        // reset login status
-        this.authenticationService.logout();
 
         // get return url from route parameters or default to '/'
         this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
@@ -55,13 +53,32 @@ export class LoginComponent implements OnInit {
                                 localStorage.setItem("token", data1.token.toString( ));
 // prueba del validate
 
-let bool = this.authenticationService.validate( data1.token.toString( ) );
-console.log( String(bool) );
-console.log( "PUTO MUNDO" );
-if( String(bool) == "true" ){
-  this.router.navigate([this.returnUrl]);
-}else{
-}
+                                this.authenticationService.validate( data1.token.toString( ) )
+                                .subscribe(
+                                  data2 => {
+                                      if (data2.valido == "true" ){
+
+                                        this.router.navigate([this.returnUrl]);
+
+                                      }else{
+
+                                        var divL = document.getElementById('avisoLogin');
+                                        divL.style.display= 'block' ;
+
+                                      }
+
+
+                                  }
+
+
+                                );
+// var myString: string = String(bool);
+// console.log( myString );
+// console.log( "PUTO MUNDO" );
+// if( String(bool) == true ){
+//   this.router.navigate([this.returnUrl]);
+// }else{
+// }
 // //
 //
                                 // this.router.navigate([this.returnUrl]);
@@ -82,6 +99,26 @@ if( String(bool) == "true" ){
                 this.loading = false;
             });
     }
+
+
+    logout( ){
+      this.authenticationService.logout( localStorage.getItem('token') )
+          .subscribe(
+              data => {
+                  var str = String(data);
+                  var n = str.search("200");
+                  if( n != -1 ){
+                    // remove user from local storage to log user out
+                    localStorage.removeItem('token');
+                    localStorage.removeItem('id');
+                    this.router.navigate([this.returnUrl]);
+                  }
+              },
+              error => {
+
+              });
+    }
+
 
     register( ){
         this.loading1 = true;

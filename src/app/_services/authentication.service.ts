@@ -19,7 +19,7 @@ export class AuthenticationService {
       this.model.nick = email;
       this.model.name = email;
       let body = JSON.stringify(this.model);
-      let headers = new Headers({ 'Content-Type': 'application/json' });
+      let headers = new Headers({ 'Content-Type': 'application/json'});
       let options = new RequestOptions({ headers: headers });
       var resul = false;
       return this.http.post('http://192.168.99.102:4001/user/resources/ldap', body, options)
@@ -63,9 +63,17 @@ export class AuthenticationService {
                       });
     }
 
-    logout() {
-        // remove user from local storage to log user out
-        localStorage.removeItem('currentUser');
+    logout(token: string) {
+
+        let jsonToken = '{"token":"' + token + '"}';
+        var body = JSON.parse(jsonToken);
+
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+        let valid: boolean;
+        return this.http.delete('http://192.168.99.102:4000/user/resources/authentication/' + token, options);
+
+
     }
 
     create(name: string, nick: string, email: string, password: string) {
@@ -98,24 +106,24 @@ export class AuthenticationService {
 
     }
 
-    validate(  token: string ):any{
-        this.valide( token ).subscribe(
-          data =>{
-            // let valid:boolean;
-            // console.log( String(data.valido) );
-            if( data.valido == "true"){
-              console.log( "validate true" );
-              return true;
-            }else{
-              console.log( "validate false" );
-              return false;
-            }
-        });
-        // console.log( String(this.authentication) );
-        // return this.authentication;
-    }
+    // validate(  token: string ):any{
+    //     this.valide( token ).subscribe(
+    //       data =>{
+    //         // let valid:boolean;
+    //         // console.log( String(data.valido) );
+    //         if( data.valido == "true"){
+    //           console.log( "validate true" );
+    //           this.authentication = true;
+    //         }else{
+    //           console.log( "validate false" );
+    //           this.authentication = false;
+    //         }
+    //     });
+    //     // console.log( String(this.authentication) );
+    //     return this.authentication;
+    // }
 
-    valide( token: string ){
+    validate( token: string ){
         let jsonToken = '{"token":"' + token + '"}';
         var body = JSON.parse(jsonToken);
 
