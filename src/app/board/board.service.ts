@@ -27,13 +27,14 @@ export class BoardService {
     .catch(this.handleError);
   }
 
-  createBoard(board: Board): Observable<Board> {
+  createBoard(board: Board) {
     alert("Entro");
+    let body = JSON.stringify(board);
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
-
-    return this.http.post(this.boardUrl + "/board", JSON.stringify( board ),{headers: headers})
-    .map( ( response: Response ) => response.json( ) );
+    alert( body );
+    return this.http.post("http://192.168.99.102:5000/api/v1/board", body,options)
+    .map( ( response: Response ) => { return response.json(); } );
   }
 
   private handleError (error: Response | any) {

@@ -24,36 +24,28 @@
     <h1>Add new board</h1>
     <form class="form-group" (ngSubmit)="createBoard(board)"  #boardForm="ngForm" >
       <div class="form-group">
-        <h3>Category</h3>
-        <div class="col-sm-12">
-            <div class="col-sm-3"></div>
-            <div class="col-sm-6">
-            <input type="text" class="form-control" placeholder="Enter the name of new board"
-            name="name" #name='ngModel' [(ngModel)]="board.name" >
-            </div>
-            <div class="col-sm-3"></div>
+        <label for="name">Category</label>
+        <input type="text"
+            class="form-control"
+            placeholder="Category"
+            required
+            name="name"
+            #name='ngModel'
+            [(ngModel)]="board.name"
+        >
+        <div [hidden]="name.valid" id="nameR"
+          class="alert alert-danger">
+             Title is required
         </div>
       </div>
-      <br><br><br><br><br>
-
-      <div class="col-sm-12" align="center">
-      <div class="col-sm-3"></div>
-      <div class="col-sm-3">
-      <div class="but">
-        <a type="submit" class="btn btn-warning btn-lg" href="/postclip/new" [hidden]="submitted">
-           New Clip
-        </a>
+      <button type="submit" class="btn btn-outline-primary btn-lg"
+      [disabled]="!boardForm.form.valid"
+      [hidden]="submitted">
+        New board
+       </button>
+      <div  [hidden]="!submitted" class="alert alert-success" role="alert" id="subm">
+        Your board has been created <a class="alert-link" routerLink="/wall">go to your wall</a>
       </div>
-      </div>
-      <div class="col-sm-3">
-      <div class="but">
-        <a type="submit" class="btn btn-success btn-lg" href="#" [hidden]="submitted">
-           Create
-        </a>
-      </div>
-     </div>
-     <div class="col-sm-3"></div>
-    </div>
     </form>
   </div>
 </div>
