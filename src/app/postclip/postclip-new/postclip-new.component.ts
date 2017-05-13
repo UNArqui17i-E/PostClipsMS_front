@@ -5,6 +5,7 @@ import { PostclipService } from '../postclip.service';
 import { Postclip } from '../postclip';
 import { BoardService } from '../../board/board.service';
 import { Board } from '../../board/board';
+import { ActivatedRoute, Params, Router} from '@angular/router';
 // import { LocalStorageService } from 'angular-2-local-storage';
 
 @Component({
@@ -21,7 +22,8 @@ export class PostclipNewComponent implements OnInit {
 
   constructor(
     private boardService: BoardService,
-    private postclipService: PostclipService
+    private postclipService: PostclipService,
+    private router: Router
   ){}
 
   ngOnInit( ){
@@ -39,6 +41,7 @@ export class PostclipNewComponent implements OnInit {
 
   createPostclip(postclip : Postclip){
     this.submitted = true
+    postclip.board_id = +localStorage.getItem("board_id");
     // alert( typeof(postclip.name) === "undefined" );
     // alert( typeof(postclip.description) === "undefined" );
     // alert( typeof(postclip.contentLink) === "undefined" );
@@ -56,7 +59,7 @@ export class PostclipNewComponent implements OnInit {
           var str = String(data);
           var n = str.search("201");
           if( n != -1 ){
-            (<HTMLInputElement>document.getElementById("sumb")).setAttribute( "style", "display:block!important" );
+            this.router.navigate(['\wall']);
           }
         }, error =>{
           console.log("Error saving postclip");

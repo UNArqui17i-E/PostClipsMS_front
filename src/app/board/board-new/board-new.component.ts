@@ -21,7 +21,6 @@ export class BoardNewComponent implements OnInit {
     this.authenticationService.validate( localStorage.getItem('token') )
     .subscribe(
       data2 => {
-          alert(data2.valido);
           if (data2.valido == "false" ){
 
             this.router.navigate(['\login']);
@@ -34,7 +33,6 @@ export class BoardNewComponent implements OnInit {
   }
 
   createBoard(board: Board){
-    alert("Entro2");
     board.user = 1;
     this.boardService.createBoard( board )
     .subscribe(
